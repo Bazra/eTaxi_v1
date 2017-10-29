@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context="projectetaxi.etaxi_v1.PassengerRegisterActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_margin="50dp"
+        android:layout_marginBottom="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@drawable/yellow_button"
+        android:text="REGISTRATION"
+        android:padding="15dp"
+        android:textColor="@color/colorBlackFade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/etDriverName"
+        style="@style/edit_text_style"
+        android:backgroundTint="@color/colorBlackFade"
+        android:drawableLeft="@drawable/person_icon"
+        android:drawableStart="@drawable/person_icon"
+        android:hint="Name"
+        android:inputType="textPersonName"
+        android:textColor="@color/colorBlackFade" />
+
+    <EditText
+        style="@style/edit_text_style"
+        android:id="@+id/etDriverEmail"
+        android:drawableLeft="@drawable/email_icon"
+        android:drawableStart="@drawable/email_icon"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:textColor="@color/colorBlackFade"
+        android:backgroundTint="@color/colorBlackFade"/>
+
+    <EditText
+        style="@style/edit_text_style"
+        android:id="@+id/etDriverPassword"
+        android:drawableLeft="@drawable/password_icon"
+        android:drawableStart="@drawable/password_icon"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:textColor="@color/colorBlackFade"
+        android:backgroundTint="@color/colorBlackFade"/>
+
+    <EditText
+        android:id="@+id/etDriverMobileNum"
+        style="@style/edit_text_style"
+        android:backgroundTint="@color/colorBlackFade"
+        android:digits="1234567890"
+        android:drawableLeft="@drawable/mobile_icon"
+        android:drawableStart="@drawable/mobile_icon"
+        android:hint="Mobile Number"
+        android:inputType="phone"
+        android:maxLength="10"
+        android:textColor="@color/colorBlackFade" />
+
+    <EditText
+        style="@style/edit_text_style"
+        android:id="@+id/etLicense"
+        android:drawableLeft="@drawable/license_icon"
+        android:drawableStart="@drawable/license_icon"
+        android:hint="License no."
+        android:inputType="number"
+        android:textColor="@color/colorBlackFade"
+        android:backgroundTint="@color/colorBlackFade"/>
+
+    <EditText
+        style="@style/edit_text_style"
+        android:id="@+id/etTaxiNum"
+        android:drawableLeft="@drawable/taxi_icon"
+        android:drawableStart="@drawable/taxi_icon"
+        android:hint="Taxi no."
+        android:inputType="text"
+        android:textColor="@color/colorBlackFade"
+        android:backgroundTint="@color/colorBlackFade"/>
+
+    <EditText
+        style="@style/edit_text_style"
+        android:id="@+id/etDriverAddress"
+        android:drawableLeft="@drawable/address_icon"
+        android:drawableStart="@drawable/address_icon"
+        android:hint="Address"
+        android:inputType="text"
+        android:textColor="@color/colorBlackFade"
+        android:backgroundTint="@color/colorBlackFade"/>
+
+    <Button
+        android:id="@+id/btDriverRegister"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        style="@style/button_style_black"
+        android:layout_gravity="center_horizontal"
+        android:text="Register"
+        android:textStyle="bold"
+        android:layout_marginTop="50dp"
+        android:textColor="@color/colorPrimary"/>
+</LinearLayout>
