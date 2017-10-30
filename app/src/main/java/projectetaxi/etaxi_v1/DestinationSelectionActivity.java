@@ -241,6 +241,8 @@ public class DestinationSelectionActivity extends FragmentActivity implements
                 location.getLongitude()
         );
 
+        currentlatLng = latLng;
+
 
         Log.d(TAG, "Current Location----> " + latLng);
         Log.d(TAG, "Current Latitude----> " + location.getLatitude());
