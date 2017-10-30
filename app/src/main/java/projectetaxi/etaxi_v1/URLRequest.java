@@ -35,6 +35,8 @@ public class URLRequest {
             +":8000/api/v1/taxi_booking/history";
     public static String bookingRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/taxi_bookings";
+    public static String freeDrivers = "http://"+num1+"."+num2+"."+num3+"."+num4
+            +":8000/api/v1/driver/free";
 
     public static String getAddressFromLatlongUrl() {
 
