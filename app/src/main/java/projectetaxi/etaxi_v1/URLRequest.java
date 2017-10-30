@@ -8,8 +8,8 @@ public class URLRequest {
 
     private static int num1 = 192;
     private static int num2 = 168;
-    private static int num3 = 100;
-    private static int num4 = 26;
+    private static int num3 = 137;
+    private static int num4 = 6;
 
     private static String lat;
     private static String lng;
@@ -23,17 +23,17 @@ public class URLRequest {
         URLRequest.lng = lng;
     }
 
-    public static String driverLoginRequest = "http://192.168."+num1+"."+num2+"."+num3+"."+num4
+    public static String driverLoginRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/driver/login";
-    public static String driverRequest = "http://192.168."+num1+"."+num2+"."+num3+"."+num4
+    public static String driverRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/drivers";
-    public static String passengerLoginRequest = "http://192.168."+num1+"."+num2+"."+num3+"."
+    public static String passengerLoginRequest = "http://"+num1+"."+num2+"."+num3+"."
             +num4+":8000/api/v1/passenger/login";
-    public static String passengerRequest = "http://192.168."+num1+"."+num2+"."+num3+"."
+    public static String passengerRequest = "http://"+num1+"."+num2+"."+num3+"."
             +num4+":8000/api/v1/passengers";
-    public static String bookingHistoryRequest = "http://192.168."+num1+"."+num2+"."+num3+"."+num4
+    public static String bookingHistoryRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/taxi_booking/history";
-    public static String bookingRequest = "http://192.168."+num1+"."+num2+"."+num3+"."+num4
+    public static String bookingRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/taxi_bookings";
 
     public static String getAddressFromLatlongUrl() {
