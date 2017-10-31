@@ -13,6 +13,7 @@ import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,6 +25,50 @@ public class BookingActivity extends AppCompatActivity{
 
     final String TAG = this.getClass().getName();
 
+    private static String source, destination, distance, duration;
+    private static int intDistance;
+
+    public static String getSource() {
+        return source;
+    }
+
+    public static void setSource(String source) {
+        BookingActivity.source = source;
+    }
+
+    public static String getDestination() {
+        return destination;
+    }
+
+    public static void setDestination(String destination) {
+        BookingActivity.destination = destination;
+    }
+
+    public static String getDistance() {
+        return distance;
+    }
+
+    public static void setDistance(String distance) {
+        BookingActivity.distance = distance;
+    }
+
+    public static String getDuration() {
+        return duration;
+    }
+
+    public static void setDuration(String duration) {
+        BookingActivity.duration = duration;
+    }
+
+    public int getIntDistance() {
+        return intDistance;
+    }
+
+    public void setIntDistance(int intDistance) {
+        this.intDistance = intDistance;
+    }
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,12 +78,14 @@ public class BookingActivity extends AppCompatActivity{
 
         final PassengerLoginActivity passengerLoginActivity = new PassengerLoginActivity();
 
+        final AmountCalculationActivity amountCalculationActivity = new AmountCalculationActivity();
+
         final DestinationSelectionActivity destinationSelectionActivity =
                 new DestinationSelectionActivity();
 
         final Button btDestination = (Button) findViewById(R.id.btDestination);
         final Button btNearbyDriver = (Button) findViewById(R.id.btNearbyDriver);
-        final Button btCalculatePrice = (Button) findViewById(R.id.btCalculatePrice);
+        final Button btReviewBooking = (Button) findViewById(R.id.btReviewBooking);
         final Button btBookTaxi = (Button) findViewById(R.id.btBookTaxi);
 
 
@@ -57,7 +104,7 @@ public class BookingActivity extends AppCompatActivity{
             @Override
             public void onClick(View view) {
 
-                final String roadType = data.roadType;
+                final String roadType = amountCalculationActivity.getRoadType();
                 final String driverEmail = data.driverEmail;
                 final String passengerEmail = passengerLoginActivity.getPassenEmail();
                 final String srcLat = destinationSelectionActivity.getCurrentLat();
@@ -65,7 +112,7 @@ public class BookingActivity extends AppCompatActivity{
                 final String destLat = destinationSelectionActivity.getDestinationLat();
                 final String destLong = destinationSelectionActivity.getDestinationLng();
                 //final String bookingStatus = data.bookingStatus;
-                final String amount = data.amount;
+                final String amount = ""+amountCalculationActivity.getAmount();
 
                 Log.d(TAG, "Booking Data: "
                         + roadType
@@ -115,6 +162,77 @@ public class BookingActivity extends AppCompatActivity{
                         srcLat, srcLong, destLat, destLong, amount, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
                 queue.add(request);
+            }
+        });
+
+        btReviewBooking.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Log.d(TAG, "Clicked.....");
+
+                Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+
+                    @Override
+                    public void onResponse(JSONObject response) {
+
+                        try {
+
+                            String status = response.getString("status");
+
+                            Log.d(TAG, "response: "+response);
+                            Log.d(TAG, "status: "+status);
+
+                            JSONArray arrRoutes = response.getJSONArray("routes");
+                            JSONObject routes = arrRoutes.getJSONObject(0);
+                            JSONArray arrLegs = routes.getJSONArray("legs");
+                            JSONObject legs = arrLegs.getJSONObject(0);
+                            JSONObject objDistance = legs.getJSONObject("distance");
+                            JSONObject objDuration = legs.getJSONObject("duration");
+
+                            String strDistance = objDistance.getString("text");
+                            Integer intDist = objDistance.getInt("value");
+                            String src = legs.getString("start_address");
+                            String dest = legs.getString("end_address");
+                            String dur = objDuration.getString("text");
+
+                            distance = strDistance;
+                            intDistance = intDist;
+                            source = src;
+                            destination = dest;
+                            duration = dur;
+
+                            Log.d(TAG, "strDistance: "+strDistance);
+                            Log.d(TAG, "intDistance: "+intDistance);
+                            Log.d(TAG, "source: "+source);
+                            Log.d(TAG, "destination: "+destination);
+                            Log.d(TAG, "duration: "+duration);
+
+
+                            Intent intent = new Intent(BookingActivity.this,
+                                    AmountCalculationActivity.class);
+
+                            BookingActivity.this.startActivity(intent);
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                ReviewBookingRequest request = new ReviewBookingRequest(responseListener);
+
+                Log.d(TAG, "Request: "+request);
+
+                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
+
+                Log.d(TAG, "RequestQueue: "+queue);
+
+                queue.add(request);
+
+                Log.d(TAG, "AddedRequestQueue: "+queue);
+
             }
         });
 

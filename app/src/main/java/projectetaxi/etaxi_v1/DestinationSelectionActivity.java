@@ -619,7 +619,7 @@ public class DestinationSelectionActivity extends FragmentActivity implements
                 // Starts parsing data
                 routes = parser.parse(jObject);
                 Log.d("ParserTask","Executing routes");
-                Log.d("ParserTask",routes.toString());
+                Log.d("ParserTask", "Booking Distance and Time: "+routes.toString());
 
             } catch (Exception e) {
                 Log.d("ParserTask",e.toString());

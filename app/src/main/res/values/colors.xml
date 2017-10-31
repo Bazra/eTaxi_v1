@@ -7,8 +7,8 @@
     <color name="colorAccentBlack">#000000</color>
     <color name="colorBlackFade">#3d3d3d</color>
     <color name="colorWhite">#FFFFFF</color>
-    <color name="red">#b40000</color>
-    <color name="green">#006120</color>
+    <color name="red">#e40000</color>
+    <color name="green">#30bf00</color>
     <color name="colorBackground">#EBE8DE</color>
     <color name="colorDarkBackground">#aeaba4</color>
 </resources>

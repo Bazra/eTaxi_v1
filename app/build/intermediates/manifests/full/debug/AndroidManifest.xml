@@ -37,6 +37,7 @@
         android:label="@string/app_name"
         android:roundIcon="@drawable/title_icon"
         android:supportsRtl="true"
+        android:testOnly="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
 
         <!--
@@ -76,6 +77,8 @@
         <activity android:name="projectetaxi.etaxi_v1.PassengerSettingActivity" />
         <activity android:name="projectetaxi.etaxi_v1.DriverSettingActivity" />
         <activity android:name="projectetaxi.etaxi_v1.DestinationSelectionActivity" />
+        <activity android:name="projectetaxi.etaxi_v1.ReviewBookingActivity" />
+        <activity android:name="projectetaxi.etaxi_v1.AmountCalculationActivity" />
 
         <meta-data
             android:name="android.support.VERSION"
