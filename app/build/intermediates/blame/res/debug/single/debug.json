@@ -2204,6 +2204,10 @@
         "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.4.aar\\9c2a0d543dedc97c77da09f5cce16b26\\res\\drawable-mdpi-v4\\cast_ic_stop_circle_filled_white.png"
     },
     {
+        "merged": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_near_by_driver.xml.flat",
+        "source": "D:\\eTaxi Service\\eTaxi_v1\\app\\src\\main\\res\\layout\\activity_near_by_driver.xml"
+    },
+    {
         "merged": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi-v4_ic_group_collapse_15.png.flat",
         "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b57dfa701b349276c58fca7f5d1a66a7\\res\\drawable-xxxhdpi-v4\\ic_group_collapse_15.png"
     },

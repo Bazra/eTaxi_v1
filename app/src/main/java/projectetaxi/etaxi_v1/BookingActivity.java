@@ -17,6 +17,8 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 /**
  * Created by Ashim Bazracharya on 10/17/2017.
  */
@@ -24,6 +26,8 @@ import org.json.JSONObject;
 public class BookingActivity extends AppCompatActivity{
 
     final String TAG = this.getClass().getName();
+
+    ArrayList<DriverDetail> driverList = new ArrayList<>();
 
     private static String source, destination, distance, duration;
     private static int intDistance;
@@ -69,6 +73,59 @@ public class BookingActivity extends AppCompatActivity{
     }
 
 
+    private static String name, email, mobileNum, taxiNum, lat, lng;
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        BookingActivity.name = name;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        BookingActivity.email = email;
+    }
+
+    public static String getMobileNum() {
+        return mobileNum;
+    }
+
+    public static void setMobileNum(String mobileNum) {
+        BookingActivity.mobileNum = mobileNum;
+    }
+
+    public static String getTaxiNum() {
+        return taxiNum;
+    }
+
+    public static void setTaxiNum(String taxiNum) {
+        BookingActivity.taxiNum = taxiNum;
+    }
+
+    public static String getLat() {
+        return lat;
+    }
+
+    public static void setLat(String lat) {
+        BookingActivity.lat = lat;
+    }
+
+    public static String getLng() {
+        return lng;
+    }
+
+    public static void setLng(String lng) {
+        BookingActivity.lng = lng;
+    }
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,6 +152,59 @@ public class BookingActivity extends AppCompatActivity{
             public void onClick(View v){
                 Intent intent = new Intent(BookingActivity.this, DestinationSelectionActivity.class);
                 BookingActivity.this.startActivity(intent);
+            }
+        });
+
+        btNearbyDriver.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+
+                Response.Listener<JSONArray> responseListener =
+
+                        new Response.Listener<JSONArray>() {
+
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        try {
+
+                            for(int i=0; i<response.length(); i++){
+
+                                JSONObject objName = response.getJSONObject(1);
+                                JSONObject objEmail = response.getJSONObject(2);
+                                JSONObject objMobileNum = response.getJSONObject(3);
+                                JSONObject objTaxiNum = response.getJSONObject(5);
+                                JSONObject objLat = response.getJSONObject(6);
+                                JSONObject objLng = response.getJSONObject(7);
+
+                                String drivName = objName.getString("name");
+                                String drivEmail = objEmail.getString("email");
+                                String drivMobNum = objMobileNum.getString("mobileNumber");
+                                String drivTaxi = objTaxiNum.getString("taxiNumber");
+                                String drivLat = objLat.getString("latitude");
+                                String drivLng = objLng.getString("longitude");
+
+
+                            }
+
+                            Intent intent = new Intent(BookingActivity.this,
+                                    NearByDriverActivity.class);
+                            BookingActivity.this.startActivity(intent);
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +name
+                +email+mobileNum+taxiNum+lat+lng);
+
+                NearByDriverRequest request = new NearByDriverRequest(responseListener);
+                Log.d(TAG, "Nearby Driver Request: " + request);
+                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
+                queue.add(request);
             }
         });
 

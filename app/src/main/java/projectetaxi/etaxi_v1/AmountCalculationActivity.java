@@ -1,5 +1,6 @@
 package projectetaxi.etaxi_v1;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -57,6 +58,7 @@ public class AmountCalculationActivity extends AppCompatActivity {
         tvDuration.setText(bookingActivity.getDuration());
 
         final Button btCalculate = (Button) findViewById(R.id.btCalcAmount);
+        final Button btDone = (Button) findViewById(R.id.btDone);
 
         btCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -77,8 +79,8 @@ public class AmountCalculationActivity extends AppCompatActivity {
                             String cityRate = objCity.getString("rate");
                             String highwayRate = objHwy.getString("rate");
 
-                            Log.d(TAG, "City Rate: "+cityRate);
-                            Log.d(TAG, "Highway Rate: "+highwayRate);
+                            Log.d(TAG, "City Rate: " + cityRate);
+                            Log.d(TAG, "Highway Rate: " + highwayRate);
 
                             double dbCityRate = Double.parseDouble(cityRate);
                             double dbHighwayRate = Double.parseDouble(highwayRate);
@@ -87,11 +89,11 @@ public class AmountCalculationActivity extends AppCompatActivity {
                             String dest = bookingActivity.getDestination().toLowerCase();
                             int dist = bookingActivity.getIntDistance();
 
-                            Log.d(TAG, "src: "+src);
-                            Log.d(TAG, "dest: "+dest);
-                            Log.d(TAG, "dist: "+dist);
+                            Log.d(TAG, "src: " + src);
+                            Log.d(TAG, "dest: " + dest);
+                            Log.d(TAG, "dist: " + dist);
 
-                            if(((src.contains("highway")) ||
+                            if (((src.contains("highway")) ||
                                     (src.contains("hwy")) ||
                                     (src.contains("rajmarg"))) &&
                                     ((dest.contains("highway")) ||
@@ -99,14 +101,14 @@ public class AmountCalculationActivity extends AppCompatActivity {
                                             (dest.contains("rajmarg")))) {
 
                                 amount = dbHighwayRate * dist / 1000;
-                                tvAmount.setText("Rs. "+amount+" /-");
+                                tvAmount.setText("Rs. " + amount + " /-");
                                 btCalculate.setText("Taxi Fee");
                                 roadType = "Highway";
 
-                            }else {
+                            } else {
 
                                 amount = dbCityRate * dist / 1000;
-                                tvAmount.setText("Rs. "+amount+" /-");
+                                tvAmount.setText("Rs. " + amount + " /-");
                                 btCalculate.setText("Taxi Fee");
                                 roadType = "City Road";
                             }
@@ -119,9 +121,19 @@ public class AmountCalculationActivity extends AppCompatActivity {
                 };
 
                 FareRateRequest request = new FareRateRequest(responseListener);
-                Log.d(TAG, "Fare Request: "+request);
+                Log.d(TAG, "Fare Request: " + request);
                 RequestQueue queue = Volley.newRequestQueue(AmountCalculationActivity.this);
                 queue.add(request);
+
+            }
+        });
+
+        btDone.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(AmountCalculationActivity.this, BookingActivity.class);
+                AmountCalculationActivity.this.startActivity(intent);
 
             }
         });

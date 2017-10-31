@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
+ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\25e07405db6b9220f4d81207679d97e0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services:11.0.4] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\play-services-11.0.4.aar\ed8eec5ff2e42592d1fa000503909d13\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-cast-framework:11.0.4] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-11.0.4.aar\9c2a0d543dedc97c77da09f5cce16b26\AndroidManifest.xml:2:1-9:12
@@ -74,20 +74,20 @@ MERGED from [com.android.support:palette-v7:25.2.0] C:\Users\Ashim Bazracharya\.
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\2750f5b6d8911aeca8e39003b933cac0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\60cde3db99951e71194bd203cb06a04a\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\56f1052d978f749d81cc9f5f49ab945f\AndroidManifest.xml:17:1-30:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
-INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
+INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
 	package
 		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
-		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
-		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-62:12
+		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-63:12
 		INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:2:11-69
@@ -158,7 +158,7 @@ ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:10:5-82
 	android:name
 		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:10:22-79
 application
-ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:12:5-60:19
+ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:12:5-61:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\25e07405db6b9220f4d81207679d97e0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\25e07405db6b9220f4d81207679d97e0\AndroidManifest.xml:25:5-29:19
 MERGED from [com.google.android.gms:play-services:11.0.4] C:\Users\Ashim Bazracharya\.gradle\caches\transforms-1\files-1.1\play-services-11.0.4.aar\ed8eec5ff2e42592d1fa000503909d13\AndroidManifest.xml:5:5-20
@@ -368,9 +368,13 @@ ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:58:9-59
 	android:name
 		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:58:19-56
 activity#projectetaxi.etaxi_v1.AmountCalculationActivity
-ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:59:9-72
+ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:59:9-63
 	android:name
 		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:59:19-60
+activity#projectetaxi.etaxi_v1.NearByDriverActivity
+ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:60:9-67
+	android:name
+		ADDED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml:60:19-55
 uses-sdk
 INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from D:\eTaxi Service\eTaxi_v1\app\src\main\AndroidManifest.xml

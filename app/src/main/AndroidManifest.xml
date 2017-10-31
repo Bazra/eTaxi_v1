@@ -56,7 +56,8 @@
         <activity android:name=".DriverSettingActivity" />
         <activity android:name=".DestinationSelectionActivity" />
         <activity android:name=".ReviewBookingActivity" />
-        <activity android:name=".AmountCalculationActivity"></activity>
+        <activity android:name=".AmountCalculationActivity" />
+        <activity android:name=".NearByDriverActivity"></activity>
     </application>
 
 </manifest>

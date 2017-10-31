@@ -146,10 +146,17 @@
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorBlackFade"
             android:textSize="16sp"/>
-
-
-
-
-
     </LinearLayout>
+
+    <Button
+        android:id="@+id/btDone"
+        android:layout_width="129dp"
+        android:layout_height="wrap_content"
+        style="@style/button_style_black"
+        android:text="Done"
+        android:textStyle="bold"
+        android:layout_marginLeft="250dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="20dp"
+        android:textColor="@color/colorPrimary"/>
 </LinearLayout>
