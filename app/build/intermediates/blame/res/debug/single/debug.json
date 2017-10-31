@@ -1680,10 +1680,6 @@
         "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-cast-framework-11.0.4.aar\\9c2a0d543dedc97c77da09f5cce16b26\\res\\drawable-xxxhdpi-v4\\cast_abc_scrubber_control_to_pressed_mtrl_000.png"
     },
     {
-        "merged": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\debug\\layout_activity_served_history.xml.flat",
-        "source": "D:\\eTaxi Service\\eTaxi_v1\\app\\src\\main\\res\\layout\\activity_served_history.xml"
-    },
-    {
         "merged": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi-v4_common_google_signin_btn_text_light_normal_background.9.png.flat",
         "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\play-services-base-11.0.4.aar\\953c59cda10fe1a785b8b6bd30f63c64\\res\\drawable-xxhdpi-v4\\common_google_signin_btn_text_light_normal_background.9.png"
     },
