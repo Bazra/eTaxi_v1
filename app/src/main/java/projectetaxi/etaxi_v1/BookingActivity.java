@@ -166,26 +166,25 @@ public class BookingActivity extends AppCompatActivity{
                     @Override
                     public void onResponse(JSONArray response) {
 
-                        ArrayList<DriverDetail> driverDetailArray = new ArrayList();
-                        //i got to see this, and i feel very happy...
                         try {
 
                             for(int i=0; i<response.length(); i++){
 
-                                JSONObject objName = response.getJSONObject(1);
-                                JSONObject objEmail = response.getJSONObject(2);
-                                JSONObject objMobileNum = response.getJSONObject(3);
-                                JSONObject objTaxiNum = response.getJSONObject(5);
-                                JSONObject objLat = response.getJSONObject(6);
-                                JSONObject objLng = response.getJSONObject(7);
+                                JSONObject driverDetailObj = response.getJSONObject(i);
+                                String drivName = driverDetailObj.getString("name");
+                                String drivEmail = driverDetailObj.getString("email");
+                                String drivMobNum = driverDetailObj.getString("mobileNumber");
+                                String drivTaxi = driverDetailObj.getString("taxiNumber");
+                                String drivLat = driverDetailObj.getString("latitude");
+                                String drivLng = driverDetailObj.getString("longitude");
 
-                                String drivName = objName.getString("name");
-                                String drivEmail = objEmail.getString("email");
-                                String drivMobNum = objMobileNum.getString("mobileNumber");
-                                String drivTaxi = objTaxiNum.getString("taxiNumber");
-                                String drivLat = objLat.getString("latitude");
-                                String drivLng = objLng.getString("longitude");
-
+                                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +drivName
+                                        +drivEmail
+                                        +drivMobNum
+                                        +drivTaxi
+                                        +drivLat
+                                        +drivLng
+                                );
 
                             }
 
@@ -199,9 +198,6 @@ public class BookingActivity extends AppCompatActivity{
 
                     }
                 };
-
-                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +name
-                +email+mobileNum+taxiNum+lat+lng);
 
                 NearByDriverRequest request = new NearByDriverRequest(responseListener);
                 Log.d(TAG, "Nearby Driver Request: " + request);
