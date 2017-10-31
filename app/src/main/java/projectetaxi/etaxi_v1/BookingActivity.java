@@ -166,6 +166,7 @@ public class BookingActivity extends AppCompatActivity{
                     @Override
                     public void onResponse(JSONArray response) {
 
+                        ArrayList<DriverDetail> driverDetailArray = new ArrayList();
                         try {
 
                             for(int i=0; i<response.length(); i++){
