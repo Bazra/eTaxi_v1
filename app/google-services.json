@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "805641456410",
+    "firebase_url": "https://etaxi-service-1508830147067.firebaseio.com",
+    "project_id": "etaxi-service-1508830147067",
+    "storage_bucket": "etaxi-service-1508830147067.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:805641456410:android:4138c7fe770bceeb",
+        "android_client_info": {
+          "package_name": "projectetaxi.etaxi_v1"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "805641456410-ol9e7f8ufk2loltgeig54aaet2pp9kdj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "projectetaxi.etaxi_v1",
+            "certificate_hash": "7974c141051608833c0a4f7f726af7c0783c74bc"
+          }
+        },
+        {
+          "client_id": "805641456410-82cr528soeigjb2nklfvmja2qoniov2r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiwFnaLjRvdU5IqqWjX-ch19NO1bVuhTQ"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "805641456410-82cr528soeigjb2nklfvmja2qoniov2r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
