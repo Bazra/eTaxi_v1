@@ -15,6 +15,7 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Toast;
 
+import com.android.volley.Response;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -28,6 +29,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.util.List;
@@ -44,6 +49,64 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
+
+    private static String name, email, mobileNumber, licenseNumber, taxiNumber, latitude, longitude;
+
+    public static String getName() {
+        return name;
+    }
+
+    public static void setName(String name) {
+        NearByDriverActivity.name = name;
+    }
+
+    public static String getEmail() {
+        return email;
+    }
+
+    public static void setEmail(String email) {
+        NearByDriverActivity.email = email;
+    }
+
+    public static String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public static void setMobileNumber(String mobileNumber) {
+        NearByDriverActivity.mobileNumber = mobileNumber;
+    }
+
+    public static String getLicenseNumber() {
+        return licenseNumber;
+    }
+
+    public static void setLicenseNumber(String licenseNumber) {
+        NearByDriverActivity.licenseNumber = licenseNumber;
+    }
+
+    public static String getTaxiNumber() {
+        return taxiNumber;
+    }
+
+    public static void setTaxiNumber(String taxiNumber) {
+        NearByDriverActivity.taxiNumber = taxiNumber;
+    }
+
+    public static String getLatitude() {
+        return latitude;
+    }
+
+    public static void setLatitude(String latitude) {
+        NearByDriverActivity.latitude = latitude;
+    }
+
+    public static String getLongitude() {
+        return longitude;
+    }
+
+    public static void setLongitude(String longitude) {
+        NearByDriverActivity.longitude = longitude;
+    }
 
 
     @Override
@@ -103,6 +166,52 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
             buildGoogleApiClient();
             mMap.setMyLocationEnabled(true);
         }
+
+        Response.Listener<JSONArray> responseListener =
+
+                new Response.Listener<JSONArray>() {
+
+
+                    @Override
+                    public void onResponse(JSONArray response) {
+
+                        try {
+
+                            for(int i=0; i<response.length(); i++){
+
+                                JSONObject driverDetailObj = response.getJSONObject(i);
+                                String drivName = driverDetailObj.getString("name");
+                                String drivEmail = driverDetailObj.getString("email");
+                                String drivMobNum = driverDetailObj.getString("mobileNumber");
+                                String drivTaxi = driverDetailObj.getString("taxiNumber");
+                                String drivLat = driverDetailObj.getString("latitude");
+                                String drivLng = driverDetailObj.getString("longitude");
+
+//                                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +drivName
+//                                        +drivEmail
+//                                        +drivMobNum
+//                                        +drivTaxi
+//                                        +drivLat
+//                                        +drivLng
+//                                );
+
+                                Double lat1= Double.parseDouble(drivLat);
+                                Double long1= Double.parseDouble(drivLng);
+
+                                mMap.addMarker(new MarkerOptions()
+                                        .position(new LatLng(lat1, long1))
+                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA )));
+
+                            }
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                };
+
+
     }
 
     protected synchronized void buildGoogleApiClient() {

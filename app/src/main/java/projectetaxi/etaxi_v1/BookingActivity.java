@@ -186,6 +186,8 @@ public class BookingActivity extends AppCompatActivity{
                                         +drivLng
                                 );
 
+
+
                             }
 
                             Intent intent = new Intent(BookingActivity.this,
