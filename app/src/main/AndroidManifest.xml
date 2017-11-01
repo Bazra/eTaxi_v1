@@ -44,7 +44,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" />
+            android:value="AIzaSyAVg03vTSOrByYYsQlm7QWK600wIEvQxvc	" />
         <!-- android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" -->
 
         <activity android:name=".UserSelectActivity">

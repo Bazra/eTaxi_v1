@@ -1,6 +1,7 @@
 package projectetaxi.etaxi_v1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
@@ -13,9 +14,12 @@ import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -44,69 +48,73 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
+    final String TAG = this.getClass().getName();
+
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
-    private static String name, email, mobileNumber, licenseNumber, taxiNumber, latitude, longitude;
+    BookingActivity bookingActivity = new BookingActivity();
 
-    public static String getName() {
-        return name;
-    }
-
-    public static void setName(String name) {
-        NearByDriverActivity.name = name;
-    }
-
-    public static String getEmail() {
-        return email;
-    }
-
-    public static void setEmail(String email) {
-        NearByDriverActivity.email = email;
-    }
-
-    public static String getMobileNumber() {
-        return mobileNumber;
-    }
-
-    public static void setMobileNumber(String mobileNumber) {
-        NearByDriverActivity.mobileNumber = mobileNumber;
-    }
-
-    public static String getLicenseNumber() {
-        return licenseNumber;
-    }
-
-    public static void setLicenseNumber(String licenseNumber) {
-        NearByDriverActivity.licenseNumber = licenseNumber;
-    }
-
-    public static String getTaxiNumber() {
-        return taxiNumber;
-    }
-
-    public static void setTaxiNumber(String taxiNumber) {
-        NearByDriverActivity.taxiNumber = taxiNumber;
-    }
-
-    public static String getLatitude() {
-        return latitude;
-    }
-
-    public static void setLatitude(String latitude) {
-        NearByDriverActivity.latitude = latitude;
-    }
-
-    public static String getLongitude() {
-        return longitude;
-    }
-
-    public static void setLongitude(String longitude) {
-        NearByDriverActivity.longitude = longitude;
-    }
+//    private static String name, email, mobileNumber, licenseNumber, taxiNumber, latitude, longitude;
+//
+//    public static String getName() {
+//        return name;
+//    }
+//
+//    public static void setName(String name) {
+//        NearByDriverActivity.name = name;
+//    }
+//
+//    public static String getEmail() {
+//        return email;
+//    }
+//
+//    public static void setEmail(String email) {
+//        NearByDriverActivity.email = email;
+//    }
+//
+//    public static String getMobileNumber() {
+//        return mobileNumber;
+//    }
+//
+//    public static void setMobileNumber(String mobileNumber) {
+//        NearByDriverActivity.mobileNumber = mobileNumber;
+//    }
+//
+//    public static String getLicenseNumber() {
+//        return licenseNumber;
+//    }
+//
+//    public static void setLicenseNumber(String licenseNumber) {
+//        NearByDriverActivity.licenseNumber = licenseNumber;
+//    }
+//
+//    public static String getTaxiNumber() {
+//        return taxiNumber;
+//    }
+//
+//    public static void setTaxiNumber(String taxiNumber) {
+//        NearByDriverActivity.taxiNumber = taxiNumber;
+//    }
+//
+//    public static String getLatitude() {
+//        return latitude;
+//    }
+//
+//    public static void setLatitude(String latitude) {
+//        NearByDriverActivity.latitude = latitude;
+//    }
+//
+//    public static String getLongitude() {
+//        return longitude;
+//    }
+//
+//    public static void setLongitude(String longitude) {
+//        NearByDriverActivity.longitude = longitude;
+//    }
 
 
     @Override
@@ -167,52 +175,55 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
             mMap.setMyLocationEnabled(true);
         }
 
-        Response.Listener<JSONArray> responseListener =
+        Response.Listener<JSONArray> responseListener = new Response.Listener<JSONArray>() {
 
-                new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
 
+                try {
 
-                    @Override
-                    public void onResponse(JSONArray response) {
+                    for(int i=0; i<response.length(); i++){
 
-                        try {
+                        JSONObject driverDetailObj = response.getJSONObject(i);
+                        String drivName = driverDetailObj.getString("name");
+                        String drivEmail = driverDetailObj.getString("email");
+                        String drivMobNum = driverDetailObj.getString("mobileNumber");
+                        String drivTaxi = driverDetailObj.getString("taxiNumber");
+                        String drivLat = driverDetailObj.getString("latitude");
+                        String drivLng = driverDetailObj.getString("longitude");
 
-                            for(int i=0; i<response.length(); i++){
+                        double lat = Double.parseDouble(drivLat);
+                        double lng = Double.parseDouble(drivLng);
 
-                                JSONObject driverDetailObj = response.getJSONObject(i);
-                                String drivName = driverDetailObj.getString("name");
-                                String drivEmail = driverDetailObj.getString("email");
-                                String drivMobNum = driverDetailObj.getString("mobileNumber");
-                                String drivTaxi = driverDetailObj.getString("taxiNumber");
-                                String drivLat = driverDetailObj.getString("latitude");
-                                String drivLng = driverDetailObj.getString("longitude");
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(lat, lng))
+                                .icon(BitmapDescriptorFactory.defaultMarker(
+                                        BitmapDescriptorFactory.HUE_MAGENTA)));
 
-//                                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +drivName
-//                                        +drivEmail
-//                                        +drivMobNum
-//                                        +drivTaxi
-//                                        +drivLat
-//                                        +drivLng
-//                                );
+                        Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
-                                Double lat1= Double.parseDouble(drivLat);
-                                Double long1= Double.parseDouble(drivLng);
-
-                                mMap.addMarker(new MarkerOptions()
-                                        .position(new LatLng(lat1, long1))
-                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA )));
-
-                            }
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-
+                        Log.d(TAG, "detail from Nearby Activity:" +drivName
+                                +drivEmail
+                                +drivMobNum
+                                +drivTaxi
+                                +drivLat
+                                +drivLng);
                     }
-                };
 
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        NearByDriverRequest request = new NearByDriverRequest(responseListener);
+        Log.d(TAG, "Nearby Driver Request: " + request);
+        RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
+        queue.add(request);
 
     }
+
+
 
     protected synchronized void buildGoogleApiClient() {
         mGoogleApiClient = new GoogleApiClient.Builder(this)
