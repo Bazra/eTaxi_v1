@@ -155,58 +155,14 @@ public class BookingActivity extends AppCompatActivity{
             }
         });
 
-        btNearbyDriver.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
+        btNearbyDriver.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
 
-//                Response.Listener<JSONArray> responseListener =
-//
-//                        new Response.Listener<JSONArray>() {
-//
-//
-//                    @Override
-//                    public void onResponse(JSONArray response) {
-//
-//                        try {
-//
-//                            for(int i=0; i<response.length(); i++){
-//
-//                                JSONObject driverDetailObj = response.getJSONObject(i);
-//                                String drivName = driverDetailObj.getString("name");
-//                                String drivEmail = driverDetailObj.getString("email");
-//                                String drivMobNum = driverDetailObj.getString("mobileNumber");
-//                                String drivTaxi = driverDetailObj.getString("taxiNumber");
-//                                String drivLat = driverDetailObj.getString("latitude");
-//                                String drivLng = driverDetailObj.getString("longitude");
-//
-//                                Log.d(TAG, "detailXXXXXXXXXXXXXXXXXXX:" +drivName
-//                                        +drivEmail
-//                                        +drivMobNum
-//                                        +drivTaxi
-//                                        +drivLat
-//                                        +drivLng
-//                                );
-//
-//
-//
-//                            }
-
-                            Intent intent = new Intent(BookingActivity.this,
-                                    NearByDriverActivity.class);
-                            BookingActivity.this.startActivity(intent);
-
-//                        } catch (JSONException e) {
-//                            e.printStackTrace();
-//                        }
-
-                    }
-//                };
-//
-//                NearByDriverRequest request = new NearByDriverRequest(responseListener);
-//                Log.d(TAG, "Nearby Driver Request: " + request);
-//                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
-//                queue.add(request);
-//            }
-      });
+                Intent intent = new Intent(BookingActivity.this,
+                        NearByDriverActivity.class);
+                BookingActivity.this.startActivity(intent);
+            }
+        });
 
         //This action is for the  button Book that post taxi bookings data in the database...
 
