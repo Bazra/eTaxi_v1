@@ -1,7 +1,6 @@
 package projectetaxi.etaxi_v1;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
@@ -197,8 +196,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
-                                .icon(BitmapDescriptorFactory.defaultMarker(
-                                        BitmapDescriptorFactory.HUE_MAGENTA)));
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.taxi_icon)));
 
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
