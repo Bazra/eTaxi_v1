@@ -55,67 +55,6 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
-    BookingActivity bookingActivity = new BookingActivity();
-
-//    private static String name, email, mobileNumber, licenseNumber, taxiNumber, latitude, longitude;
-//
-//    public static String getName() {
-//        return name;
-//    }
-//
-//    public static void setName(String name) {
-//        NearByDriverActivity.name = name;
-//    }
-//
-//    public static String getEmail() {
-//        return email;
-//    }
-//
-//    public static void setEmail(String email) {
-//        NearByDriverActivity.email = email;
-//    }
-//
-//    public static String getMobileNumber() {
-//        return mobileNumber;
-//    }
-//
-//    public static void setMobileNumber(String mobileNumber) {
-//        NearByDriverActivity.mobileNumber = mobileNumber;
-//    }
-//
-//    public static String getLicenseNumber() {
-//        return licenseNumber;
-//    }
-//
-//    public static void setLicenseNumber(String licenseNumber) {
-//        NearByDriverActivity.licenseNumber = licenseNumber;
-//    }
-//
-//    public static String getTaxiNumber() {
-//        return taxiNumber;
-//    }
-//
-//    public static void setTaxiNumber(String taxiNumber) {
-//        NearByDriverActivity.taxiNumber = taxiNumber;
-//    }
-//
-//    public static String getLatitude() {
-//        return latitude;
-//    }
-//
-//    public static void setLatitude(String latitude) {
-//        NearByDriverActivity.latitude = latitude;
-//    }
-//
-//    public static String getLongitude() {
-//        return longitude;
-//    }
-//
-//    public static void setLongitude(String longitude) {
-//        NearByDriverActivity.longitude = longitude;
-//    }
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -196,7 +135,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                         mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
-                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.taxi_icon)));
+                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
@@ -320,7 +259,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                 e.printStackTrace();
             }
         }
-        markerOptions.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_MAGENTA));
+        markerOptions.icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_marker));
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
