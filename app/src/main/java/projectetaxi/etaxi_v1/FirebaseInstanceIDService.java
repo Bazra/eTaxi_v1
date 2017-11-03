@@ -10,7 +10,7 @@ import com.google.firebase.messaging.RemoteMessage;
  * Created by Ashim Bazracharya on 10/31/2017.
  */
 
-public class FirebaseIDService extends FirebaseInstanceIdService {
+public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
     final String TAG = this.getClass().getName();
 

@@ -20,7 +20,7 @@
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
 
         <service
-            android:name=".FirebaseIDService">
+            android:name=".FirebaseInstanceIDService">
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/>
             </intent-filter>
@@ -44,7 +44,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAVg03vTSOrByYYsQlm7QWK600wIEvQxvc	" />
+            android:value="AIzaSyApToEtOar_WL3ywug0bTiDlFxIpuoR9jA" />
         <!-- android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" -->
 
         <activity android:name=".UserSelectActivity">

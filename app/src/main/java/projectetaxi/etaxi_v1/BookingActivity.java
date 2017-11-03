@@ -73,6 +73,10 @@ public class BookingActivity extends AppCompatActivity{
     }
 
 
+
+
+
+
     private static String name, email, mobileNum, taxiNum, lat, lng;
 
     public static String getName() {
