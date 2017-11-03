@@ -1264,6 +1264,40 @@
             ]
         },
         {
+            "outputFile": "F:\\eTaxiService_v1\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v16_values-v16.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dc7bcffaa79c9867618a9ff53f9b9393\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "65",
+                        "endOffsets": "116"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ac877821c9125b38650b0fa428459502\\res\\values-v16\\values-v16.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endLines": "5",
+                        "endColumns": "12",
+                        "endOffsets": "223"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "121",
+                        "endLines": "6",
+                        "endColumns": "12",
+                        "endOffsets": "289"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sk_values-sk.arsc.flat",
             "map": [
                 {
@@ -1417,40 +1451,6 @@
                         "startOffsets": "10789,10866,10979,11047,11118,11211",
                         "endColumns": "76,112,67,70,92,106",
                         "endOffsets": "10861,10974,11042,11113,11206,11313"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "F:\\eTaxiService_v1\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-v16_values-v16.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\support-compat-26.1.0.aar\\dc7bcffaa79c9867618a9ff53f9b9393\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "65",
-                        "endOffsets": "116"
-                    }
-                },
-                {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ac877821c9125b38650b0fa428459502\\res\\values-v16\\values-v16.xml",
-                    "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endLines": "5",
-                        "endColumns": "12",
-                        "endOffsets": "223"
-                    },
-                    "to": {
-                        "startLines": "3",
-                        "startColumns": "4",
-                        "startOffsets": "121",
-                        "endLines": "6",
-                        "endColumns": "12",
-                        "endOffsets": "289"
                     }
                 }
             ]
@@ -3616,16 +3616,16 @@
             ]
         },
         {
-            "outputFile": "F:\\eTaxiService_v1\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
+            "outputFile": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ka-rGE_values-ka-rGE.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ac877821c9125b38650b0fa428459502\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
+                    "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b57dfa701b349276c58fca7f5d1a66a7\\res\\values-ka-rGE\\values-ka-rGE.xml",
                     "from": {
-                        "startLines": "2",
-                        "startColumns": "4",
-                        "startOffsets": "55",
-                        "endColumns": "66",
-                        "endOffsets": "117"
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,163,281,411,526,641,729,828,945,1043,1138,1239,1330,1453,1565,1649,1732,1831,1931,2018",
+                        "endColumns": "107,117,129,114,114,87,98,116,97,94,100,90,122,111,83,82,98,99,86,99",
+                        "endOffsets": "158,276,406,521,636,724,823,940,1038,1133,1234,1325,1448,1560,1644,1727,1826,1926,2013,2113"
                     }
                 }
             ]
@@ -3789,16 +3789,16 @@
             ]
         },
         {
-            "outputFile": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ka-rGE_values-ka-rGE.arsc.flat",
+            "outputFile": "F:\\eTaxiService_v1\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-h720dp-v13_values-h720dp-v13.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b57dfa701b349276c58fca7f5d1a66a7\\res\\values-ka-rGE\\values-ka-rGE.xml",
+                    "source": "C:\\Users\\user\\.gradle\\caches\\transforms-1\\files-1.1\\appcompat-v7-26.1.0.aar\\ac877821c9125b38650b0fa428459502\\res\\values-h720dp-v13\\values-h720dp-v13.xml",
                     "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,163,281,411,526,641,729,828,945,1043,1138,1239,1330,1453,1565,1649,1732,1831,1931,2018",
-                        "endColumns": "107,117,129,114,114,87,98,116,97,94,100,90,122,111,83,82,98,99,86,99",
-                        "endOffsets": "158,276,406,521,636,724,823,940,1038,1133,1234,1325,1448,1560,1644,1727,1826,1926,2013,2113"
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "66",
+                        "endOffsets": "117"
                     }
                 }
             ]
@@ -4091,6 +4091,21 @@
             ]
         },
         {
+            "outputFile": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ta-rIN_values-ta-rIN.arsc.flat",
+            "map": [
+                {
+                    "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b57dfa701b349276c58fca7f5d1a66a7\\res\\values-ta-rIN\\values-ta-rIN.xml",
+                    "from": {
+                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
+                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
+                        "startOffsets": "55,159,278,394,518,619,708,803,914,1011,1107,1207,1303,1411,1540,1632,1717,1814,1916,2003",
+                        "endColumns": "103,118,115,123,100,88,94,110,96,95,99,95,107,128,91,84,96,101,86,95",
+                        "endOffsets": "154,273,389,513,614,703,798,909,1006,1102,1202,1298,1406,1535,1627,1712,1809,1911,1998,2094"
+                    }
+                }
+            ]
+        },
+        {
             "outputFile": "F:\\eTaxiService_v1\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-sv_values-sv.arsc.flat",
             "map": [
                 {
@@ -4244,21 +4259,6 @@
                         "startOffsets": "3668,3806,3945",
                         "endColumns": "137,138,98",
                         "endOffsets": "3801,3940,4039"
-                    }
-                }
-            ]
-        },
-        {
-            "outputFile": "D:\\eTaxi Service\\eTaxi_v1\\app\\build\\intermediates\\res\\merged\\androidTest\\debug\\values-ta-rIN_values-ta-rIN.arsc.flat",
-            "map": [
-                {
-                    "source": "C:\\Users\\Ashim Bazracharya\\.gradle\\caches\\transforms-1\\files-1.1\\mediarouter-v7-25.2.0.aar\\b57dfa701b349276c58fca7f5d1a66a7\\res\\values-ta-rIN\\values-ta-rIN.xml",
-                    "from": {
-                        "startLines": "2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21",
-                        "startColumns": "4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4,4",
-                        "startOffsets": "55,159,278,394,518,619,708,803,914,1011,1107,1207,1303,1411,1540,1632,1717,1814,1916,2003",
-                        "endColumns": "103,118,115,123,100,88,94,110,96,95,99,95,107,128,91,84,96,101,86,95",
-                        "endOffsets": "154,273,389,513,614,703,798,909,1006,1102,1202,1298,1406,1535,1627,1712,1809,1911,1998,2094"
                     }
                 }
             ]

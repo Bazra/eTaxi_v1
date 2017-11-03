@@ -1,9 +1,9 @@
 -- Merging decision tree log ---
 manifest
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\15bede4f40bc07c5e3f6d9cc27f4196a\AndroidManifest.xml:17:1-31:12
 MERGED from [com.google.android.gms:play-services:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-11.0.4.aar\a206fd9ef4ee84925ac8d68be3d033cd\AndroidManifest.xml:2:1-6:12
 MERGED from [com.google.android.gms:play-services-cast-framework:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-cast-framework-11.0.4.aar\60c67308746d97890e5d5a1ed9a5386e\AndroidManifest.xml:2:1-9:12
@@ -75,20 +75,20 @@ MERGED from [com.android.support:palette-v7:25.2.0] C:\Users\user\.gradle\caches
 MERGED from [com.android.support:support-core-utils:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-core-utils-26.1.0.aar\57efa8e04b5de58c2a02661611c287a0\AndroidManifest.xml:17:1-31:12
 MERGED from [com.android.support:support-compat:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\support-compat-26.1.0.aar\dc7bcffaa79c9867618a9ff53f9b9393\AndroidManifest.xml:17:1-31:12
 MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\runtime-1.0.0.aar\7a95edcd3f3264ee4d49524d196f5dc4\AndroidManifest.xml:17:1-30:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
-INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
+INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
 	package
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:3:5-36
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
 	android:versionName
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
 	android:versionCode
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-71:12
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:1-79:12
 		INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
 	xmlns:android
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:2:11-69
@@ -159,7 +159,7 @@ ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:10:5-82
 	android:name
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:10:22-79
 application
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:13:5-69:19
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:13:5-77:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\15bede4f40bc07c5e3f6d9cc27f4196a\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:design:26.1.0] C:\Users\user\.gradle\caches\transforms-1\files-1.1\design-26.1.0.aar\15bede4f40bc07c5e3f6d9cc27f4196a\AndroidManifest.xml:25:5-29:19
 MERGED from [com.google.android.gms:play-services:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-11.0.4.aar\a206fd9ef4ee84925ac8d68be3d033cd\AndroidManifest.xml:5:5-20
@@ -294,100 +294,110 @@ MERGED from [android.arch.lifecycle:runtime:1.0.0] C:\Users\user\.gradle\caches\
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:20:9-65
 	android:name
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:14:9-68
-service#projectetaxi.etaxi_v1.MyFirebaseInstanceIDService
+service#projectetaxi.etaxi_v1.FirebaseIDService
 ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:22:9-27:19
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:23:13-56
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:23:13-46
 intent-filter#com.google.firebase.INSTANCE_ID_EVENT
 ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:24:13-26:29
 action#com.google.firebase.INSTANCE_ID_EVENT
 ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:25:17-79
 	android:name
 		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:25:25-77
+service#projectetaxi.etaxi_v1.FirebaseMessagingService
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:29:9-34:19
+	android:name
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:30:13-53
+intent-filter#com.google.firebase.MESSAGING_EVENT
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:31:13-33:29
+action#com.google.firebase.MESSAGING_EVENT
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:32:17-77
+	android:name
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:32:25-75
 meta-data#com.google.android.geo.API_KEY
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:37:9-39:71
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:45:9-47:72
 	android:value
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:39:13-68
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:47:13-69
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:38:13-58
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:46:13-58
 activity#projectetaxi.etaxi_v1.UserSelectActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:42:9-48:20
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:50:9-56:20
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:42:19-53
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:50:19-53
 intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:43:13-47:29
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:51:13-55:29
 action#android.intent.action.MAIN
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:44:17-69
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:52:17-69
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:44:25-66
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:52:25-66
 category#android.intent.category.LAUNCHER
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:46:17-77
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:54:17-77
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:46:27-74
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:54:27-74
 activity#projectetaxi.etaxi_v1.DriverLoginActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:49:9-57
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:57:9-57
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:49:19-54
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:57:19-54
 activity#projectetaxi.etaxi_v1.PassengerLoginActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:50:9-60
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:58:9-60
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:50:19-57
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:58:19-57
 activity#projectetaxi.etaxi_v1.PassengerRegisterActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:51:9-63
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:59:9-63
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:51:19-60
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:59:19-60
 activity#projectetaxi.etaxi_v1.DriverRegisterActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:52:9-60
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:60:9-60
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:52:19-57
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:60:19-57
 activity#projectetaxi.etaxi_v1.DriverMainActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:53:9-56:72
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:61:9-64:72
 	android:label
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:55:13-58
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:63:13-58
 	android:theme
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:56:13-69
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:64:13-69
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:54:13-47
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:62:13-47
 activity#projectetaxi.etaxi_v1.PassengerMainActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:57:9-60:72
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:65:9-68:72
 	android:label
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:59:13-61
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:67:13-61
 	android:theme
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:60:13-69
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:68:13-69
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:58:13-50
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:66:13-50
 activity#projectetaxi.etaxi_v1.BookingHistoryActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:61:9-60
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:69:9-60
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:61:19-57
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:69:19-57
 activity#projectetaxi.etaxi_v1.BookingActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:62:9-53
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:70:9-53
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:62:19-50
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:70:19-50
 activity#projectetaxi.etaxi_v1.PassengerSettingActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:63:9-62
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:71:9-62
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:63:19-59
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:71:19-59
 activity#projectetaxi.etaxi_v1.DriverSettingActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:64:9-59
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:72:9-59
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:64:19-56
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:72:19-56
 activity#projectetaxi.etaxi_v1.DestinationSelectionActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:65:9-66
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:73:9-66
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:65:19-63
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:73:19-63
 activity#projectetaxi.etaxi_v1.ReviewBookingActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:66:9-59
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:74:9-59
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:66:19-56
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:74:19-56
 activity#projectetaxi.etaxi_v1.AmountCalculationActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:67:9-63
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:75:9-63
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:67:19-60
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:75:19-60
 activity#projectetaxi.etaxi_v1.NearByDriverActivity
-ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:68:9-67
+ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:76:9-67
 	android:name
-		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:68:19-55
+		ADDED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml:76:19-55
 uses-sdk
 INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from F:\eTaxiService_v1\eTaxi_v1\app\src\main\AndroidManifest.xml
@@ -592,14 +602,6 @@ ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle
 		ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:23:88-111
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:23:18-87
-intent-filter#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:24:13-26:29
-	android:priority
-		ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:24:28-51
-action#com.google.firebase.MESSAGING_EVENT
-ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:25:17-77
-	android:name
-		ADDED from [com.google.firebase:firebase-messaging:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\firebase-messaging-11.0.4.aar\da91db0867e8bae1cab5525e6cf1429c\AndroidManifest.xml:25:25-75
 activity#com.google.android.gms.ads.AdActivity
 ADDED from [com.google.android.gms:play-services-ads-lite:11.0.4] C:\Users\user\.gradle\caches\transforms-1\files-1.1\play-services-ads-lite-11.0.4.aar\09945824283e01aa9f90b8068aaadf63\AndroidManifest.xml:25:9-232
 	android:configChanges

@@ -38,9 +38,14 @@
         android:roundIcon="@drawable/title_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <service android:name="projectetaxi.etaxi_v1.MyFirebaseInstanceIDService" >
+        <service android:name="projectetaxi.etaxi_v1.FirebaseIDService" >
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+        <service android:name="projectetaxi.etaxi_v1.FirebaseMessagingService" >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
 
@@ -54,7 +59,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" />
+            android:value="AIzaSyAVg03vTSOrByYYsQlm7QWK600wIEvQxvc " />
         <!-- android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" -->
 
         <activity android:name="projectetaxi.etaxi_v1.UserSelectActivity" >
