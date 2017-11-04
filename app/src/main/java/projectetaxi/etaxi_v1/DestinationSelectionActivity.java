@@ -319,7 +319,7 @@ public class DestinationSelectionActivity extends FragmentActivity implements
 
     //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
     //this code stops location updates
         if (mGoogleApiClient != null) {

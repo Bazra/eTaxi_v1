@@ -291,7 +291,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
         //move map camera
         mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+        mMap.animateCamera(CameraUpdateFactory.zoomTo(20.0f));
         //this code stops location updates
 
         if (mGoogleApiClient != null) {
