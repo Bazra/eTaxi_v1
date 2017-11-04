@@ -11,11 +11,16 @@ import android.widget.Toast;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 public class DriverLoginActivity extends AppCompatActivity {
+
+
+
 
     private static String driToken;
     private static String driName;
@@ -99,6 +104,14 @@ public class DriverLoginActivity extends AppCompatActivity {
         DriverLoginActivity.status = status;
     }
 
+
+
+
+
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -146,12 +159,6 @@ public class DriverLoginActivity extends AppCompatActivity {
 
                                 Toast.makeText(getApplicationContext(), "Login Failed, try again",
                                         Toast.LENGTH_SHORT).show();
-
-//                                AlertDialog.Builder builder = new AlertDialog.Builder(DriverRegisterActivity.this);
-//                                builder.setMessage("Register Failed")
-//                                        .setNegativeButton("Try Again", null)
-//                                        .create()
-//                                        .show();
                             }
                         } catch (JSONException e) {
 

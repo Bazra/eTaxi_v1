@@ -1,5 +1,6 @@
 package projectetaxi.etaxi_v1;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -40,6 +41,8 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -76,13 +79,65 @@ public class DriverMainActivity extends AppCompatActivity implements
 
     final String TAG = this.getClass().getName();
 
+
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_main);
+
+
+        FirebaseMessaging.getInstance().subscribeToTopic("Dorje-X");
+        final String fcm_token = FirebaseInstanceId.getInstance().getToken();
+        Log.d(TAG, ""+FirebaseInstanceId.getInstance().getToken());
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+            @Override
+            public void onResponse(String response) {
+
+                try {
+                    JSONObject jsonResponse = new JSONObject(response);
+                    boolean success = jsonResponse.getBoolean("success");
+                    Log.d(TAG, "Success: " + success);
+
+                    if(success) {
+
+                        Toast.makeText(
+                                getApplicationContext(),
+                                "FCM Token "+ fcm_token + "is saved in database.",
+                                Toast.LENGTH_SHORT).show();
+
+                    } else {
+
+                        AlertDialog.Builder builder = new AlertDialog.Builder(DriverMainActivity.this);
+                        builder.setMessage("Booking Failed")
+                                .setNegativeButton("Try Again", null)
+                                .create()
+                                .show();
+                    }
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        FCMPostRequest request = new FCMPostRequest(driverLoginActivity.getDriEmail(),
+                fcm_token,
+                responseListener);
+        RequestQueue queue = Volley.newRequestQueue(DriverMainActivity.this);
+        queue.add(request);
+
+
+
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
+
+
         SupportMapFragment mapFragment = (SupportMapFragment)
                 getSupportFragmentManager()
                         .findFragmentById(R.id.map);
