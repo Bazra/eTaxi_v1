@@ -11,15 +11,15 @@ import java.util.Map;
  * Created by Ashim Bazracharya on 11/4/2017.
  */
 
-public class FCMPostRequest extends StringRequest {
+public class FCMUpdateRequest extends StringRequest {
 
     DriverLoginActivity driverLoginActivity = new DriverLoginActivity();
 
-    private static final String FCM_TOKEN_POST_REQUEST_URL = URLRequest.fcmTokenUrl;
+    private static final String FCM_TOKEN_UPDATE_REQUEST_URL = URLRequest.fcmTokenUrl;
     private Map<String, String> params;
 
-    public FCMPostRequest(String email, String fcm_token, Response.Listener<String>listener) {
-        super(Method.POST, FCM_TOKEN_POST_REQUEST_URL, listener, null);
+    public FCMUpdateRequest(String email, String fcm_token, Response.Listener<String>listener) {
+        super(Method.PUT, FCM_TOKEN_UPDATE_REQUEST_URL, listener, null);
 
         params = new HashMap<>();
         params.put("email", email);

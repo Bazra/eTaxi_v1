@@ -290,8 +290,8 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
         //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(20.0f));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,18.2f));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(18.2f));
         //this code stops location updates
 
         if (mGoogleApiClient != null) {

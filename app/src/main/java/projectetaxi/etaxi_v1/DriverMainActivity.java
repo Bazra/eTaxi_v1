@@ -91,7 +91,8 @@ public class DriverMainActivity extends AppCompatActivity implements
 
         FirebaseMessaging.getInstance().subscribeToTopic("Dorje-X");
         final String fcm_token = FirebaseInstanceId.getInstance().getToken();
-        Log.d(TAG, ""+FirebaseInstanceId.getInstance().getToken());
+        Log.d(TAG, "*****************FCM"+FirebaseInstanceId.getInstance().getToken());
+        Log.d(TAG, "Final FCM *********"+FirebaseInstanceId.getInstance().getToken());
         Response.Listener<String> responseListener = new Response.Listener<String>() {
 
 

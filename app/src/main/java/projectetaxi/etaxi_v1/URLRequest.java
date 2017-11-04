@@ -47,6 +47,6 @@ public class URLRequest {
     public static String fareRateUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/taxi_fare_rates";
 
-    public static String fcmTokenPostUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
-            +":8000/api/v1/drivers_fcm_tokens";
+    public static String fcmTokenUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
+            +":8000/api/v1/driver_fcm_tokens";
 }

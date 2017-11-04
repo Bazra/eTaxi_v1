@@ -318,8 +318,8 @@ public class DestinationSelectionActivity extends FragmentActivity implements
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
     //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,15));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
 
     //this code stops location updates
         if (mGoogleApiClient != null) {
