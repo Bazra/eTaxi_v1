@@ -58,6 +58,8 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
+    String drivName, drivEmail, drivMobNum, drivTaxi;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -126,10 +128,10 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                     for(int i=0; i<response.length(); i++){
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
-                        final String drivName = driverDetailObj.getString("name");
-                        final String drivEmail = driverDetailObj.getString("email");
-                        final String drivMobNum = driverDetailObj.getString("mobileNumber");
-                        final String drivTaxi = driverDetailObj.getString("taxiNumber");
+                        drivName = driverDetailObj.getString("name");
+                        drivEmail = driverDetailObj.getString("email");
+                        drivMobNum = driverDetailObj.getString("mobileNumber");
+                        drivTaxi = driverDetailObj.getString("taxiNumber");
                         String drivLat = driverDetailObj.getString("latitude");
                         String drivLng = driverDetailObj.getString("longitude");
 
