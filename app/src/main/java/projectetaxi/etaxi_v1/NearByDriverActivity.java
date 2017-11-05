@@ -41,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -57,6 +58,8 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
+
+    private ArrayList<String> mEntries;
 
 
     String drivName, drivEmail, drivMobNum, drivTaxi;
@@ -129,6 +132,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                     for(int i=0; i<response.length(); i++){
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
+                        mEntries.add(driverDetailObj.toString());
                         drivName = driverDetailObj.getString("name");
                         drivEmail = driverDetailObj.getString("email");
                         drivMobNum = driverDetailObj.getString("mobileNumber");
@@ -143,6 +147,38 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                                 .position(new LatLng(lat, lng))
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
+
+                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                            @Override
+                            public boolean onMarkerClick(Marker marker) {
+                                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                                    @Override
+                                    public View getInfoWindow(Marker marker) {
+                                        return null;
+                                    }
+
+                                    @Override
+                                    public View getInfoContents(Marker marker) {
+                                        View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                                        TextView tvname = (TextView) v.findViewById(R.id.tv_name);
+                                        TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
+                                        TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
+                                        TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
+
+                                        tvname.setText("Name: " + drivName);
+                                        tvemail.setText("Email: " + drivEmail);
+                                        tvmobilenum.setText("Mobile: " + drivMobNum);
+                                        tvtaxinumber.setText("Taxino. " + drivTaxi);
+
+                                        return v;
+
+                                    }
+                                });
+                                return true;
+                            }
+                        });
+
+
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
                         Log.d(TAG, "detail from Nearby Activity:" +drivName
@@ -152,29 +188,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                                 +drivLat
                                 +drivLng);
 
-                        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-                            @Override
-                            public View getInfoWindow(Marker marker) {
-                                return null;
-                            }
 
-                            @Override
-                            public View getInfoContents(Marker marker) {
-                                View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-                                TextView tvname = (TextView) v.findViewById(R.id.tv_name);
-                                TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
-                                TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
-                                TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
-
-                                tvname.setText("Name: "+drivName);
-                                tvemail.setText("Email: "+drivEmail);
-                                tvmobilenum.setText("Mobile: "+drivMobNum);
-                                tvtaxinumber.setText("Taxino. "+drivTaxi);
-
-                                return v;
-
-                            }
-                        });
                     }
 
                 } catch (JSONException e) {
@@ -187,6 +201,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         Log.d(TAG, "Nearby Driver Request: " + request);
         RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
         queue.add(request);
+
 
     }
 
