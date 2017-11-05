@@ -55,7 +55,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
-    Marker mCurrLocationMarker;
+    Marker mCurrLocationMarker,dMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
@@ -143,40 +143,35 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         double lat = Double.parseDouble(drivLat);
                         double lng = Double.parseDouble(drivLng);
 
-                        mMap.addMarker(new MarkerOptions()
+                        dMarker= mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
+                        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                                                      @Override
+                                                      public View getInfoWindow(Marker marker) {
+                                                          return null;
+                                                      }
 
-                        mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
-                            @Override
-                            public boolean onMarkerClick(Marker marker) {
-                                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-                                    @Override
-                                    public View getInfoWindow(Marker marker) {
-                                        return null;
-                                    }
+                                                      @Override
+                                                      public View getInfoContents(Marker marker) {
+                                                          View v = null;
+                                                          if (marker.equals(dMarker)) {
+                                                              v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                                                              TextView tvname = (TextView) v.findViewById(R.id.tv_name);
+                                                              TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
+                                                              TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
+                                                              TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
 
-                                    @Override
-                                    public View getInfoContents(Marker marker) {
-                                        View v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-                                        TextView tvname = (TextView) v.findViewById(R.id.tv_name);
-                                        TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
-                                        TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
-                                        TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
+                                                              tvname.setText("Name: " + drivName);
+                                                              tvemail.setText("Email: " + drivEmail);
+                                                              tvmobilenum.setText("Mobile: " + drivMobNum);
+                                                              tvtaxinumber.setText("Taxino. " + drivTaxi);
 
-                                        tvname.setText("Name: " + drivName);
-                                        tvemail.setText("Email: " + drivEmail);
-                                        tvmobilenum.setText("Mobile: " + drivMobNum);
-                                        tvtaxinumber.setText("Taxino. " + drivTaxi);
-
-                                        return v;
-
-                                    }
-                                });
-                                return true;
-                            }
-                        });
+                                                          }
+                                                          return v;
+                                                      }
+                                                  });
 
 
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
