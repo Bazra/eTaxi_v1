@@ -1,12 +1,10 @@
 package projectetaxi.etaxi_v1;
 
-import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
-import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -92,7 +90,7 @@ public class PassengerLoginActivity extends AppCompatActivity {
 
         btPassengerLogin.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(final View view){
 
                 final String email = etPassengerEmail.getText().toString();
 
@@ -135,11 +133,7 @@ public class PassengerLoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
-                        anim.setDuration(15000);
-                        anim.setInterpolator(new DecelerateInterpolator());
-                        anim.start();
-
+                        mprogressBar.setVisibility(view.VISIBLE);
 
                     }
                 };
