@@ -1,12 +1,15 @@
 package projectetaxi.etaxi_v1;
 
+import android.animation.ObjectAnimator;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.DecelerateInterpolator;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -18,6 +21,8 @@ import org.json.JSONObject;
 
 public class PassengerLoginActivity extends AppCompatActivity {
 
+
+    ProgressBar mprogressBar;
     BookingData booking = new BookingData();
 
     final String TAG = this.getClass().getName();
@@ -76,6 +81,9 @@ public class PassengerLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_login);
 
+        mprogressBar = (ProgressBar) findViewById(R.id.loading_spinner);
+
+
         final EditText etPassengerEmail = (EditText) findViewById(R.id.etPassengerEmail);
         final EditText etPassengerPassword = (EditText) findViewById(R.id.etPassengerPassword);
 
@@ -126,6 +134,12 @@ public class PassengerLoginActivity extends AppCompatActivity {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
+
+                        ObjectAnimator anim = ObjectAnimator.ofInt(mprogressBar, "progress", 0, 100);
+                        anim.setDuration(15000);
+                        anim.setInterpolator(new DecelerateInterpolator());
+                        anim.start();
+
 
                     }
                 };

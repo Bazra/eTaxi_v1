@@ -58,6 +58,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
+
     String drivName, drivEmail, drivMobNum, drivTaxi;
 
     @Override
