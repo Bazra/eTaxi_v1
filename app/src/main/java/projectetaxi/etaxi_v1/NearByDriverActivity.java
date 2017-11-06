@@ -56,14 +56,12 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     LatLng cLatLng;
-    LatLng LatLng;
-    Marker mCurrLocationMarker,dMarker;
+    Marker mCurrLocationMarker, dMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
 
-
-   ArrayList<NearbyDriverDetails> nearbyDriverArrayList = new ArrayList<>();
+    ArrayList<NearbyDriverDetails> nearbyDriverArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,7 +102,6 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     }
 
 
-
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -131,7 +128,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                 try {
 
 
-                    for(int i=0; i<response.length(); i++) {
+                    for (int i = 0; i < response.length(); i++) {
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
 
@@ -149,24 +146,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         nearbyDriverArrayList.add(nearbyDriverDetails);
 
 
-                        dMarker = mMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(lat, lng))
-                                .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
-
-
-                        Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
-
-                        Log.d(TAG, "detail from Nearby Activity:"/* + drivName[i]*/
-                                + drivEmail[i]
-                                + drivMobNum[i]
-                                + drivTaxi[i]
-                                + drivLat[i]
-                                + drivLng[i]
-                        );
                     }
-
-                    Log.d(TAG, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDriver Names: " + drivNames);
-
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -180,6 +160,13 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
         queue.add(request);
 
+        for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
+            double lat = nearbyDriverArrayList.get(i).getdLat();
+            double lng = nearbyDriverArrayList.get(i).getdLng();
+            LatLng latLng = new LatLng(lat, lng);
+            dMarker = mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.taxi_icon)));
+        }
+
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
             public View getInfoWindow(Marker marker) {
@@ -191,19 +178,19 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                 View v = null;
                 cLatLng = marker.getPosition();
                 Log.d(TAG, "!!!!!!!!!!!cLatlong:" + cLatLng);
-                Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$$AAaarko latlong: " + LatLng);
-                for (int i = 0; i < drivName.length; i++) {
-                    if (LatLng == cLatLng) {
+                for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
+                    LatLng latLng = new LatLng(nearbyDriverArrayList.get(i).getdLat(),nearbyDriverArrayList.get(i).getdLng());
+                    if (latLng == cLatLng) {
                         v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
                         TextView tvname = (TextView) v.findViewById(R.id.tv_name);
                         TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
                         TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
                         TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
 
-                        tvname.setText("Name: " + drivName[i]);
-                        tvemail.setText("Email: " + drivEmail[i]);
-                        tvmobilenum.setText("Mobile: " + drivMobNum[i]);
-                        tvtaxinumber.setText("Taxino. " + drivTaxi[i]);
+                        tvname.setText("Name: " +nearbyDriverArrayList.get(i).getName());
+                        tvemail.setText("Email: " +nearbyDriverArrayList.get(i).getEmail());
+                        tvmobilenum.setText("Mobile: " +nearbyDriverArrayList.get(i).getMobileNum());
+                        tvtaxinumber.setText("Taxino. " +nearbyDriverArrayList.get(i).getTaxi());
 
                     }
                 }
@@ -212,9 +199,11 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         });
 
 
-
-
     }
+
+
+
+
 
 
 
