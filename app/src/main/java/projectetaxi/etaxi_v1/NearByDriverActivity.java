@@ -128,13 +128,13 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                 try {
 
-                    for(int i=0; i<response.length(); i++){
+                    for(int i=0; i<response.length(); i++) {
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
-                        drivName =new String[response.length()];
-                        drivEmail=new String[response.length()];
-                        drivMobNum= new String[response.length()];
-                        drivTaxi =new String[response.length()];
+                        drivName = new String[response.length()];
+                        drivEmail = new String[response.length()];
+                        drivMobNum = new String[response.length()];
+                        drivTaxi = new String[response.length()];
                         drivLat = new String[response.length()];
                         drivLng = new String[response.length()];
                         dMarker = new Marker[response.length()];
@@ -149,23 +149,22 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         double lat = Double.parseDouble(drivLat[i]);
                         double lng = Double.parseDouble(drivLng[i]);
 
-                        dMarker[i]= mMap.addMarker(new MarkerOptions()
+                        dMarker[i] = mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
 
-
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
-                        Log.d(TAG, "detail from Nearby Activity:" +drivName
-                                +drivEmail
-                                +drivMobNum
-                                +drivTaxi
-                                +drivLat
-                                +drivLng);
-
-
+                        Log.d(TAG, "detail from Nearby Activity:" + drivName[i]
+                                + drivEmail[i]
+                                + drivMobNum[i]
+                                + drivTaxi[i]
+                                + drivLat[i]
+                                + drivLng[i]
+                                +dMarker[i]);
                     }
+
 
                 } catch (JSONException e) {
                     e.printStackTrace();
