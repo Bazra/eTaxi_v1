@@ -54,8 +54,9 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
-    Marker[] dMarker;
-    Marker mCurrLocationMarker;
+    LatLng cLatLng;
+    LatLng[] LatLng;
+    Marker mCurrLocationMarker,dMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
@@ -137,7 +138,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         drivTaxi = new String[response.length()];
                         drivLat = new String[response.length()];
                         drivLng = new String[response.length()];
-                        dMarker = new Marker[response.length()];
+                        LatLng =new LatLng[response.length()];
                         drivName[i] = driverDetailObj.getString("name");
                         drivEmail[i] = driverDetailObj.getString("email");
                         drivMobNum[i] = driverDetailObj.getString("mobileNumber");
@@ -149,7 +150,9 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         double lat = Double.parseDouble(drivLat[i]);
                         double lng = Double.parseDouble(drivLng[i]);
 
-                        dMarker[i] = mMap.addMarker(new MarkerOptions()
+                        LatLng[i] = new LatLng(lat, lng);
+
+                        dMarker = mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
@@ -162,7 +165,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                                 + drivTaxi[i]
                                 + drivLat[i]
                                 + drivLng[i]
-                                +dMarker[i]);
+                        );
                     }
 
 
@@ -187,8 +190,9 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
             @Override
             public View getInfoContents(Marker marker) {
                 View v = null;
+                cLatLng=marker.getPosition();
                 for (int i = 0; i < drivName.length; i++) {
-                    if (dMarker[i].equals(marker)) {
+                    if (LatLng[i] == cLatLng) {
                         v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
                         TextView tvname = (TextView) v.findViewById(R.id.tv_name);
                         TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
