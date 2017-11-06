@@ -1,6 +1,7 @@
 package projectetaxi.etaxi_v1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Criteria;
@@ -182,6 +183,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         View v = null;
                         cLatLng = marker.getPosition();
                         Log.d(TAG, "!!!!!!!!!!!cLatlong:" + cLatLng);
+
                         for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
                             LatLng latLng = new LatLng(nearbyDriverArrayList.get(i).getdLat(),
                                     nearbyDriverArrayList.get(i).getdLng());
@@ -195,20 +197,65 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                                 tvname.setText("Name: " + nearbyDriverArrayList.get(i).getName());
                                 tvemail.setText("Email: " + nearbyDriverArrayList.get(i).getEmail());
-                                tvmobilenum.setText("Mobile: " + nearbyDriverArrayList.get(i).getMobileNum());
-                                tvtaxinumber.setText("Taxino. " + nearbyDriverArrayList.get(i).getTaxi());
+                                tvmobilenum.setText("Mobile Number: " + nearbyDriverArrayList.get(i).getMobileNum());
+                                tvtaxinumber.setText("Taxi Number:  " + nearbyDriverArrayList.get(i).getTaxi());
+
+                                final String driverEmail = nearbyDriverArrayList.get(i).getEmail();
 
                                 final Button btConfirm = (Button) findViewById(R.id.btSelectDriver);
                                 btConfirm.setOnClickListener(new View.OnClickListener() {
                                     @Override
                                     public void onClick(View view) {
 
+                                        final Response.Listener<String> responseListener =
+                                                new Response.Listener<String>() {
+
+
+                                            @Override
+                                            public void onResponse(String response) {
+
+                                                try {
+                                                    JSONObject jsonResponse = new JSONObject(response);
+                                                    boolean success = jsonResponse
+                                                            .getBoolean("response");
+
+                                                    if(success) {
+
+                                                        Intent intent = new Intent(
+                                                                NearByDriverActivity.this,
+                                                                DestinationSelectionActivity.class);
+                                                        NearByDriverActivity.this.startActivity(intent);
+
+                                                        Toast.makeText(getApplicationContext(),
+                                                                "Logged In.",
+                                                                Toast.LENGTH_SHORT).show();
+                                                    } else {
+
+                                                        Toast.makeText(getApplicationContext(),
+                                                                "Login Failed, try again",
+                                                                Toast.LENGTH_SHORT).show();
+                                                    }
+                                                } catch (JSONException e) {
+
+                                                    e.printStackTrace();
+                                                }
+                                            }
+                                        };
+
+                                        SelectedDriverPostRequest request = new SelectedDriverPostRequest(driverEmail,
+                                                responseListener);
+                                        Log.d(TAG, "DDDDDDDDDDriver Email: " + driverEmail);
+                                        RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
+                                        queue.add(request);
 
                                     }
                                 });
+
+                                break;
                             }
 
                         }
+                        Log.d(TAG, "VVVVVVVVVVVVVVVVVVVVVV: " + v);
                         return v;
                     }
                 });

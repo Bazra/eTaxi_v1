@@ -473,7 +473,8 @@ public class DestinationSelectionActivity extends FragmentActivity implements
                 destinationLat = lat;
                 destinationLng = lng;
 
-                Intent intent= new Intent(DestinationSelectionActivity.this, BookingActivity.class);
+                Intent intent= new Intent(DestinationSelectionActivity.this,
+                        ReviewBookingActivity.class);
                 DestinationSelectionActivity.this.startActivity(intent);
 
                 Log.d(TAG, "/////Src Lat: " + currentLat);

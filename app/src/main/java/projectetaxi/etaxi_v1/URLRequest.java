@@ -49,4 +49,7 @@ public class URLRequest {
 
     public static String fcmTokenUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/driver_fcm_tokens";
+
+    public static String postSeletectedDriverUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
+            +":8000/api/v1/driver_selected";
 }

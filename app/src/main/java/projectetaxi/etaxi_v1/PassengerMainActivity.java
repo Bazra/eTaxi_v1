@@ -111,7 +111,8 @@ public class PassengerMainActivity extends AppCompatActivity implements
             @Override
             public void onClick(View view){
 
-                Intent intent= new Intent(PassengerMainActivity.this, BookingActivity.class);
+                Intent intent= new Intent(PassengerMainActivity.this,
+                        NearByDriverActivity.class);
                 PassengerMainActivity.this.startActivity(intent);
             }
         });
