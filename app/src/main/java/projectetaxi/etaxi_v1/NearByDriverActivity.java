@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -147,10 +148,71 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
 
                     }
+                    Log.d(TAG, "ArrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrSzzzzzzzz: "
+                            + nearbyDriverArrayList.size());
 
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
+
+                    double lat = nearbyDriverArrayList.get(i).getdLat();
+                    Log.d(TAG, "double laaaaaaaaaaaaaaaaaat"+ lat);
+                    double lng = nearbyDriverArrayList.get(i).getdLng();
+                    LatLng latLng = new LatLng(lat, lng);
+                    dMarker = mMap.addMarker(new MarkerOptions().position(latLng).
+                            icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
+                    Log.d(TAG, "LaaaaaaaaaaaatLooooooooooooooong: " + latLng);
+                    Log.d(TAG, "DMaaaaaaaaaaaaaaaarker: " + dMarker);
+
+                }
+                Log.d(TAG, "XXXXXXXXXXXXArrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrrSzzzzzzzz: "
+                        + nearbyDriverArrayList.size());
+                Log.d(TAG, "one sampleeeeeeeeeeeeeeeee: " + nearbyDriverArrayList.get(4));
+
+                mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+                    @Override
+                    public View getInfoWindow(Marker marker) {
+                        return null;
+                    }
+
+                    @Override
+                    public View getInfoContents(Marker marker) {
+                        View v = null;
+                        cLatLng = marker.getPosition();
+                        Log.d(TAG, "!!!!!!!!!!!cLatlong:" + cLatLng);
+                        for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
+                            LatLng latLng = new LatLng(nearbyDriverArrayList.get(i).getdLat(),
+                                    nearbyDriverArrayList.get(i).getdLng());
+                            Log.d(TAG,"LAAAAAAAAAAAAAAAAAtLong"+latLng);
+                            if (latLng.equals(cLatLng)) {
+                                v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
+                                TextView tvname = (TextView) v.findViewById(R.id.tv_name);
+                                TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
+                                TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
+                                TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
+
+                                tvname.setText("Name: " + nearbyDriverArrayList.get(i).getName());
+                                tvemail.setText("Email: " + nearbyDriverArrayList.get(i).getEmail());
+                                tvmobilenum.setText("Mobile: " + nearbyDriverArrayList.get(i).getMobileNum());
+                                tvtaxinumber.setText("Taxino. " + nearbyDriverArrayList.get(i).getTaxi());
+
+                                final Button btConfirm = (Button) findViewById(R.id.btSelectDriver);
+                                btConfirm.setOnClickListener(new View.OnClickListener() {
+                                    @Override
+                                    public void onClick(View view) {
+
+
+                                    }
+                                });
+                            }
+
+                        }
+                        return v;
+                    }
+                });
+
 
             }
         };
@@ -159,44 +221,9 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         Log.d(TAG, "Nearby Driver Request: " + request);
         RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
         queue.add(request);
+        Log.d(TAG, "ArrralistSizzzzzzzzzzzzze: " + nearbyDriverArrayList.size());
 
-        for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
-            double lat = nearbyDriverArrayList.get(i).getdLat();
-            double lng = nearbyDriverArrayList.get(i).getdLng();
-            LatLng latLng = new LatLng(lat, lng);
-            dMarker = mMap.addMarker(new MarkerOptions().position(latLng).icon(BitmapDescriptorFactory.fromResource(R.drawable.taxi_icon)));
-        }
 
-        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
-            @Override
-            public View getInfoWindow(Marker marker) {
-                return null;
-            }
-
-            @Override
-            public View getInfoContents(Marker marker) {
-                View v = null;
-                cLatLng = marker.getPosition();
-                Log.d(TAG, "!!!!!!!!!!!cLatlong:" + cLatLng);
-                for (int i = 0; i < nearbyDriverArrayList.size(); i++) {
-                    LatLng latLng = new LatLng(nearbyDriverArrayList.get(i).getdLat(),nearbyDriverArrayList.get(i).getdLng());
-                    if (latLng == cLatLng) {
-                        v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
-                        TextView tvname = (TextView) v.findViewById(R.id.tv_name);
-                        TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
-                        TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
-                        TextView tvtaxinumber = (TextView) v.findViewById(R.id.tv_taxinumber);
-
-                        tvname.setText("Name: " +nearbyDriverArrayList.get(i).getName());
-                        tvemail.setText("Email: " +nearbyDriverArrayList.get(i).getEmail());
-                        tvmobilenum.setText("Mobile: " +nearbyDriverArrayList.get(i).getMobileNum());
-                        tvtaxinumber.setText("Taxino. " +nearbyDriverArrayList.get(i).getTaxi());
-
-                    }
-                }
-                return v;
-            }
-        });
 
 
     }

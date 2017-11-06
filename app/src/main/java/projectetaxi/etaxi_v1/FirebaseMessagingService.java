@@ -30,9 +30,9 @@ public class FirebaseMessagingService extends
         if (remoteMessage.getData().size() > 0) {
 
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-
-            Intent intent = new Intent(FirebaseMessagingService.this, DriverSettingActivity.class);
+            Intent intent = new Intent(FirebaseMessagingService.this, AfterDriverSelection.class);
             FirebaseMessagingService.this.startActivity(intent);
+
 
 //            if (/* Check if data needs to be processed by long running job */ true) {
 //                // For long-running tasks (10 seconds or more) use Firebase Job Dispatcher.
@@ -47,8 +47,6 @@ public class FirebaseMessagingService extends
         // Check if message contains a notification payload.
         if (remoteMessage.getNotification() != null) {
             Log.d(TAG, "Message Notification Body: " + remoteMessage.getNotification().getBody());
-            Intent intent = new Intent(FirebaseMessagingService.this, DriverMainActivity.class);
-            FirebaseMessagingService.this.startActivity(intent);
         } else {
 
             Log.d(TAG, "******************** NO NOTIFICATION ******************");

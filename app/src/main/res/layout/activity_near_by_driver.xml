@@ -20,22 +20,19 @@
         android:layout_alignParentStart="true" />
 
     <Button
-        style="@style/button_style_yellow"
-        android:textColor="@color/colorBlackFade"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:textStyle="bold"
         android:id="@+id/btSelectDriver"
+        style="@style/button_style_yellow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="Confirm"
-        android:padding="20sp"
-        android:layout_marginBottom="19dp"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginRight="29dp"
-        android:layout_marginEnd="29dp" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="32dp"
+        android:padding="20sp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:text="Confirm"
+        android:textColor="@color/colorBlackFade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
 </RelativeLayout>
