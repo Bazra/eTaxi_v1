@@ -38,7 +38,7 @@
         android:roundIcon="@drawable/title_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar" >
-        <service android:name="projectetaxi.etaxi_v1.FirebaseIDService" >
+        <service android:name="projectetaxi.etaxi_v1.FirebaseInstanceIDService" >
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
@@ -48,6 +48,22 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
+
+        <!-- <service -->
+        <!-- android:name="com.pusher.android.notifications.fcm.FCMMessagingService"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.MESSAGING_EVENT"/> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+
+
+        <!-- <service -->
+        <!-- android:name="com.pusher.android.notifications.fcm.FCMInstanceIDService"> -->
+        <!-- <intent-filter> -->
+        <!-- <action android:name="com.google.firebase.INSTANCE_ID_EVENT"/> -->
+        <!-- </intent-filter> -->
+        <!-- </service> -->
+
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -59,7 +75,7 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyAVg03vTSOrByYYsQlm7QWK600wIEvQxvc " />
+            android:value="AIzaSyApToEtOar_WL3ywug0bTiDlFxIpuoR9jA" />
         <!-- android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" -->
 
         <activity android:name="projectetaxi.etaxi_v1.UserSelectActivity" >
@@ -89,6 +105,15 @@
         <activity android:name="projectetaxi.etaxi_v1.ReviewBookingActivity" />
         <activity android:name="projectetaxi.etaxi_v1.AmountCalculationActivity" />
         <activity android:name="projectetaxi.etaxi_v1.NearByDriverActivity" />
+        <activity
+            android:name="projectetaxi.etaxi_v1.AfterDriverSelection"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="notification" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="android.support.VERSION"
