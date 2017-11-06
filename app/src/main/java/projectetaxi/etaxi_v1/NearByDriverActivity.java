@@ -41,7 +41,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -59,7 +58,6 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
-    private ArrayList<String> mEntries;
 
 
     String drivName[], drivEmail[], drivMobNum[], drivTaxi[];
@@ -132,11 +130,10 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                     for(int i=0; i<response.length(); i++){
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
-                        mEntries.add(driverDetailObj.toString());
-                        drivName[i] = driverDetailObj.getString("name");
-                        drivEmail[i] = driverDetailObj.getString("email");
-                        drivMobNum[i] = driverDetailObj.getString("mobileNumber");
-                        drivTaxi[i] = driverDetailObj.getString("taxiNumber");
+                        drivName[i] = new String(driverDetailObj.getString("name"));
+                        drivEmail[i] = new String(driverDetailObj.getString("email"));
+                        drivMobNum[i] = new String(driverDetailObj.getString("mobileNumber"));
+                        drivTaxi[i] = new String(driverDetailObj.getString("taxiNumber"));
                         String drivLat = driverDetailObj.getString("latitude");
                         String drivLng = driverDetailObj.getString("longitude");
 
