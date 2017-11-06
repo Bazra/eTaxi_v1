@@ -60,7 +60,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
 
 
-    String drivName[], drivEmail[], drivMobNum[], drivTaxi[];
+    String[] drivName, drivEmail, drivMobNum, drivTaxi;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,10 +130,14 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                     for(int i=0; i<response.length(); i++){
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
-                        drivName[i] = new String(driverDetailObj.getString("name"));
-                        drivEmail[i] = new String(driverDetailObj.getString("email"));
-                        drivMobNum[i] = new String(driverDetailObj.getString("mobileNumber"));
-                        drivTaxi[i] = new String(driverDetailObj.getString("taxiNumber"));
+                        drivName =new String[response.length()];
+                        drivEmail=new String[response.length()];
+                        drivMobNum= new String[response.length()];
+                        drivTaxi =new String[response.length()];
+                        drivName[i] = driverDetailObj.getString("name");
+                        drivEmail[i] = driverDetailObj.getString("email");
+                        drivMobNum[i] = driverDetailObj.getString("mobileNumber");
+                        drivTaxi[i] = driverDetailObj.getString("taxiNumber");
                         String drivLat = driverDetailObj.getString("latitude");
                         String drivLng = driverDetailObj.getString("longitude");
 
