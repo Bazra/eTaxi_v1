@@ -133,16 +133,20 @@
             android:layout_marginLeft="16dp"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="20dp"
+            android:layout_weight="0.5"
+            android:paddingRight="10dp"
+            android:paddingLeft="10dp"
             android:textColor="@color/colorPrimary"/>
 
         <TextView
             android:id="@+id/tvAmount"
-            android:layout_width="230dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:background="@drawable/yellow_button"
             android:text=""
             android:padding="16dp"
-            android:layout_marginTop="35dp"
+            android:layout_weight="0.5"
+            android:layout_marginTop="30dp"
             android:layout_marginLeft="10dp"
             android:textColor="@color/colorBlackFade"
             android:textSize="16sp"/>
@@ -155,7 +159,7 @@
         style="@style/button_style_black"
         android:text="Done"
         android:textStyle="bold"
-        android:layout_marginLeft="250dp"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="20dp"
         android:textColor="@color/colorPrimary"/>

@@ -22,9 +22,9 @@ import org.json.JSONObject;
 
 public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
 
-    DriverLoginActivity driverLoginActivity = new DriverLoginActivity();
+    //DriverLoginActivity driverLoginActivity = new DriverLoginActivity();
 
-    Context context;
+//    Context context;
 
     final String TAG = this.getClass().getName();
 
@@ -35,7 +35,7 @@ public class FirebaseInstanceIDService extends FirebaseInstanceIdService {
         Log.d(TAG, "Refreshed token: " + refreshedToken);
     }
 
-    private void sendRegistrationToServer(final String refreshedToken) {
-
-    }
+//    private void sendRegistrationToServer(final String refreshedToken) {
+//
+//    }
 }

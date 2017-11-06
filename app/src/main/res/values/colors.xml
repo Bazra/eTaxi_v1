@@ -3,12 +3,12 @@
     <color name="colorPrimary">#ffff00</color>
     <!--add #003f00 to the above color, but aile add vai sakkyo don worry, for the sake of color
     correction-->
-    <color name="colorPrimaryDark">#dab10d</color>
+    <color name="colorPrimaryDark">#ffd900</color>
     <color name="colorAccentBlack">#000000</color>
     <color name="colorBlackFade">#3d3d3d</color>
     <color name="colorWhite">#FFFFFF</color>
     <color name="red">#e40000</color>
-    <color name="green">#30bf00</color>
+    <color name="green">#00ff00</color>
     <color name="colorBackground">#EBE8DE</color>
     <color name="colorDarkBackground">#aeaba4</color>
 </resources>

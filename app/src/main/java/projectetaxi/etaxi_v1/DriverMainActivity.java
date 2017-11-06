@@ -270,7 +270,7 @@ public class DriverMainActivity extends AppCompatActivity implements
 //                            "Driver is Busy",
 //                            Toast.LENGTH_SHORT).show();
                     tvDriStatus.setText("BUSY");
-                    tvDriStatus.setTextColor(getResources().getColor(R.color.colorPrimary));
+                    tvDriStatus.setTextColor(getResources().getColor(R.color.red));
 
                 }
             }

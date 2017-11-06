@@ -41,6 +41,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -55,14 +56,14 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     LatLng cLatLng;
-    LatLng[] LatLng;
+    LatLng LatLng;
     Marker mCurrLocationMarker,dMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
 
 
-    String[] drivName, drivEmail, drivMobNum, drivTaxi, drivLat, drivLng;
+   ArrayList<NearbyDriverDetails> nearbyDriverArrayList = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,28 +130,24 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                 try {
 
+
                     for(int i=0; i<response.length(); i++) {
 
                         JSONObject driverDetailObj = response.getJSONObject(i);
-                        drivName = new String[response.length()];
-                        drivEmail = new String[response.length()];
-                        drivMobNum = new String[response.length()];
-                        drivTaxi = new String[response.length()];
-                        drivLat = new String[response.length()];
-                        drivLng = new String[response.length()];
-                        LatLng =new LatLng[response.length()];
-                        drivName[i] = driverDetailObj.getString("name");
-                        drivEmail[i] = driverDetailObj.getString("email");
-                        drivMobNum[i] = driverDetailObj.getString("mobileNumber");
-                        drivTaxi[i] = driverDetailObj.getString("taxiNumber");
-                        drivLat[i] = driverDetailObj.getString("latitude");
-                        drivLng[i] = driverDetailObj.getString("longitude");
 
+                        NearbyDriverDetails nearbyDriverDetails = new NearbyDriverDetails(
+                                driverDetailObj.getString("name"),
+                                driverDetailObj.getString("email"),
+                                driverDetailObj.getString("mobileNumber"),
+                                driverDetailObj.getString("taxiNumber"),
+                                driverDetailObj.getString("latitude"),
+                                driverDetailObj.getString("longitude"),
+                                Double.parseDouble(driverDetailObj.getString("latitude")),
+                                Double.parseDouble(driverDetailObj.getString("longitude"))
+                        );
 
-                        double lat = Double.parseDouble(drivLat[i]);
-                        double lng = Double.parseDouble(drivLng[i]);
+                        nearbyDriverArrayList.add(nearbyDriverDetails);
 
-                        LatLng[i] = new LatLng(lat, lng);
 
                         dMarker = mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
@@ -159,7 +156,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
                         Log.d(TAG, "From Nearby Activity: " + lat + "----" + lng);
 
-                        Log.d(TAG, "detail from Nearby Activity:" + drivName[i]
+                        Log.d(TAG, "detail from Nearby Activity:"/* + drivName[i]*/
                                 + drivEmail[i]
                                 + drivMobNum[i]
                                 + drivTaxi[i]
@@ -167,6 +164,8 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                                 + drivLng[i]
                         );
                     }
+
+                    Log.d(TAG, "XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXDriver Names: " + drivNames);
 
 
                 } catch (JSONException e) {
@@ -190,9 +189,11 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
             @Override
             public View getInfoContents(Marker marker) {
                 View v = null;
-                cLatLng=marker.getPosition();
+                cLatLng = marker.getPosition();
+                Log.d(TAG, "!!!!!!!!!!!cLatlong:" + cLatLng);
+                Log.d(TAG, "$$$$$$$$$$$$$$$$$$$$$$$AAaarko latlong: " + LatLng);
                 for (int i = 0; i < drivName.length; i++) {
-                    if (LatLng[i] == cLatLng) {
+                    if (LatLng == cLatLng) {
                         v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
                         TextView tvname = (TextView) v.findViewById(R.id.tv_name);
                         TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
