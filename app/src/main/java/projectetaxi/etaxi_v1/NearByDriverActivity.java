@@ -54,13 +54,14 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
 
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
-    Marker mCurrLocationMarker,dMarker;
+    Marker[] dMarker;
+    Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
 
 
 
-    String[] drivName, drivEmail, drivMobNum, drivTaxi;
+    String[] drivName, drivEmail, drivMobNum, drivTaxi, drivLat, drivLng;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -134,17 +135,21 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                         drivEmail=new String[response.length()];
                         drivMobNum= new String[response.length()];
                         drivTaxi =new String[response.length()];
+                        drivLat = new String[response.length()];
+                        drivLng = new String[response.length()];
+                        dMarker = new Marker[response.length()];
                         drivName[i] = driverDetailObj.getString("name");
                         drivEmail[i] = driverDetailObj.getString("email");
                         drivMobNum[i] = driverDetailObj.getString("mobileNumber");
                         drivTaxi[i] = driverDetailObj.getString("taxiNumber");
-                        String drivLat = driverDetailObj.getString("latitude");
-                        String drivLng = driverDetailObj.getString("longitude");
+                        drivLat[i] = driverDetailObj.getString("latitude");
+                        drivLng[i] = driverDetailObj.getString("longitude");
 
-                        double lat = Double.parseDouble(drivLat);
-                        double lng = Double.parseDouble(drivLng);
 
-                        dMarker= mMap.addMarker(new MarkerOptions()
+                        double lat = Double.parseDouble(drivLat[i]);
+                        double lng = Double.parseDouble(drivLng[i]);
+
+                        dMarker[i]= mMap.addMarker(new MarkerOptions()
                                 .position(new LatLng(lat, lng))
                                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.map_taxi_icon)));
 
@@ -184,7 +189,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
             public View getInfoContents(Marker marker) {
                 View v = null;
                 for (int i = 0; i < drivName.length; i++) {
-                    if (marker.equals(dMarker)) {
+                    if (dMarker[i].equals(marker)) {
                         v = getLayoutInflater().inflate(R.layout.info_window_layout, null);
                         TextView tvname = (TextView) v.findViewById(R.id.tv_name);
                         TextView tvemail = (TextView) v.findViewById(R.id.tv_email);
