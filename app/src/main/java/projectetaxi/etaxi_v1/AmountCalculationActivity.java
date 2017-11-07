@@ -48,9 +48,8 @@ public class AmountCalculationActivity extends AppCompatActivity {
         src = bundle.getString("src");
         dist = bundle.getString("distance");
         dur = bundle.getString("duration");
+        driverEmail = bundle.getString("driverEmail");
         intDistance = bundle.getInt("intDistance");
-
-        final BookingActivity bookingActivity = new BookingActivity();
 
         final TextView tvFrom = (TextView) findViewById(R.id.tvPassFrom);
         final TextView tvTo = (TextView) findViewById(R.id.tvPassTo);
@@ -172,12 +171,17 @@ public class AmountCalculationActivity extends AppCompatActivity {
                 };
 
                 BookingRequest request = new BookingRequest(roadType, driverEmail,
-                        srcLt, srcLn, dstLt, dstLn, ""+amount, responseListener);
+                        srcLt, srcLn, dstLt, dstLn, String.valueOf(amount), responseListener);
+
+                Log.d(TAG, "roadType: " + roadType);
+                Log.d(TAG, "driverEmail: " + driverEmail);
+                Log.d(TAG, "srcLt: " + srcLt);
+                Log.d(TAG, "srcLn: " + srcLn);
+                Log.d(TAG, "dstLt: " + dstLt);
+                Log.d(TAG, "detLn: " + dstLn);
+                Log.d(TAG, "amount: " + String.valueOf(amount));
                 RequestQueue queue = Volley.newRequestQueue(AmountCalculationActivity.this);
                 queue.add(request);
-
-                Intent intent = new Intent(AmountCalculationActivity.this, PassengerMainActivity.class);
-                AmountCalculationActivity.this.startActivity(intent);
 
             }
         });

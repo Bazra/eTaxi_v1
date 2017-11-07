@@ -655,7 +655,7 @@ public class DestinationSelectionActivity extends FragmentActivity implements
 
             }
 
-            tvDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);
+//            tvDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);
 
 
             // Drawing polyline in the Google Map for the i-th route

@@ -9,19 +9,7 @@ public class URLRequest {
     private static int num1 = 192;
     private static int num2 = 168;
     private static int num3 = 1;
-    private static int num4 = 15;
-
-    private static String lat;
-    private static String lng;
-
-
-    public static void setLat(String lat) {
-        URLRequest.lat = lat;
-    }
-
-    public static void setLng(String lng) {
-        URLRequest.lng = lng;
-    }
+    private static int num4 = 10;
 
     public static String driverLoginRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/driver/login";
@@ -35,8 +23,8 @@ public class URLRequest {
     public static String passengerRequest = "http://"+num1+"."+num2+"."+num3+"."
             +num4+":8000/api/v1/passengers";
 
-    public static String bookingHistoryRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
-            +":8000/api/v1/taxi_booking/history";
+//    public static String bookingHistoryRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
+//            +":8000/api/v1/taxi_booking/history";
 
     public static String bookingRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/taxi_bookings";
@@ -49,7 +37,4 @@ public class URLRequest {
 
     public static String fcmTokenUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/driver_fcm_tokens";
-
-    public static String postSeletectedDriverUrl = "http://"+num1+"."+num2+"."+num3+"."+num4
-            +":8000/api/v1/driver_selected";
 }
