@@ -66,15 +66,56 @@ public class AfterDriverSelection extends AppCompatActivity implements
 
     final String TAG = this.getClass().getName();
 
+    private String name, mobileNumber, latitude, longitude;
 
+    public String getName() {
+        return name;
+    }
 
+    public void setName(String name) {
+        this.name = name;
+    }
 
+    public String getMobileNumber() {
+        return mobileNumber;
+    }
+
+    public void setMobileNumber(String mobileNumber) {
+        this.mobileNumber = mobileNumber;
+    }
+
+    public String getLatitude() {
+        return latitude;
+    }
+
+    public void setLatitude(String latitude) {
+        this.latitude = latitude;
+    }
+
+    public String getLongitude() {
+        return longitude;
+    }
+
+    public void setLongitude(String longitude) {
+        this.longitude = longitude;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_driver_selection);
 
+        if (getIntent().getExtras() != null) {
+
+            name = getIntent().getExtras().getString("name");
+            mobileNumber = getIntent().getExtras().getString("mobileNumber");
+            latitude = getIntent().getExtras().getString("latitude");
+            longitude = getIntent().getExtras().getString("longitude");
+
+            //Log.d(TAG, ".............................. " + name + mobileNumber + latitude + longitude);
+        }
+
+        Log.d(TAG, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ " + name + mobileNumber + latitude + longitude);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -85,7 +126,6 @@ public class AfterDriverSelection extends AppCompatActivity implements
                         .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
     }
-
 
 
     private boolean checkLocationPermission() {

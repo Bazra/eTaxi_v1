@@ -3,10 +3,13 @@ package projectetaxi.etaxi_v1;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.util.Log;
 
 import com.google.firebase.messaging.RemoteMessage;
+
+import java.util.Map;
 
 /**
  * Created by Ashim Bazracharya on 11/1/2017.
@@ -30,8 +33,29 @@ public class FirebaseMessagingService extends
         if (remoteMessage.getData().size() > 0) {
 
             Log.d(TAG, "Message data payload: " + remoteMessage.getData());
-            Intent intent = new Intent(FirebaseMessagingService.this, AfterDriverSelection.class);
+
+            Map<String, String> data = remoteMessage.getData();
+            String name = data.get("name");
+            String mobileNumer = data.get("mobileNumber");
+            String latitude = data.get("latitude");
+            String longitude = data.get("longitude");
+
+
+            Intent intent = new Intent(FirebaseMessagingService.this,
+                    AfterDriverSelection.class);
             FirebaseMessagingService.this.startActivity(intent);
+
+            Bundle fcmBundle = new Bundle();
+            fcmBundle.putString("name", name);
+            fcmBundle.putString("mobileNumber", mobileNumer);
+            fcmBundle.putString("latitude", latitude);
+            fcmBundle.putString("longitude", longitude);
+            intent.putExtras(fcmBundle);
+            startActivity(intent);
+
+            Log.d(TAG, "XXXXXXXXXXXXXXXXXXXXX: " + remoteMessage.getData().get("name"));
+            Log.d(TAG, "String Name:::::::: " + name);
+
 
 
 //            if (/* Check if data needs to be processed by long running job */ true) {
