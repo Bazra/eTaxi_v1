@@ -91,6 +91,8 @@ public class PassengerLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(final View view){
 
+                mprogressBar.setVisibility(view.VISIBLE);
+
                 final String email = etPassengerEmail.getText().toString();
 
                 final String password = etPassengerPassword.getText().toString();
@@ -132,7 +134,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
                             e.printStackTrace();
                         }
 
-                        mprogressBar.setVisibility(view.VISIBLE);
 
                     }
                 };
@@ -148,8 +149,11 @@ public class PassengerLoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
 
+                mprogressBar.setVisibility(view.VISIBLE);
+
                 Intent loginIntent= new Intent(PassengerLoginActivity.this, PassengerRegisterActivity.class);
                 PassengerLoginActivity.this.startActivity(loginIntent);
+
             }
         });
     }

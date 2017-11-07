@@ -1,13 +1,13 @@
 package projectetaxi.etaxi_v1;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.ProgressBar;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -18,10 +18,14 @@ import org.json.JSONObject;
 
 public class DriverRegisterActivity extends AppCompatActivity {
 
+    ProgressBar mprogressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_register);
+
+        mprogressBar = (ProgressBar) findViewById(R.id.loading_spinner);
 
         final EditText etDriverName = (EditText) findViewById(R.id.etDriverName);
         final EditText etDriverEmail = (EditText) findViewById(R.id.etDriverEmail);
@@ -36,6 +40,8 @@ public class DriverRegisterActivity extends AppCompatActivity {
         btDriverRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mprogressBar.setVisibility(view.VISIBLE);
 
                 final String name = etDriverName.getText().toString();
                 final String email = etDriverEmail.getText().toString();

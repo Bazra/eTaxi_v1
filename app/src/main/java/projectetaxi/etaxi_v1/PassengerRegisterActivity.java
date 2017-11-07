@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
@@ -18,10 +19,14 @@ import org.json.JSONObject;
 
 public class PassengerRegisterActivity extends AppCompatActivity {
 
+    ProgressBar mprogressBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_passenger_register);
+
+        mprogressBar = (ProgressBar) findViewById(R.id.loading_spinner);
 
         final EditText etPassengerName = (EditText) findViewById(R.id.etPassengerName);
         final EditText etPassengerEmail = (EditText) findViewById(R.id.etPassengerEmail);
@@ -34,6 +39,8 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         btPassengerRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                mprogressBar.setVisibility(view.VISIBLE);
 
                 final String name = etPassengerName.getText().toString();
                 final String email = etPassengerEmail.getText().toString();

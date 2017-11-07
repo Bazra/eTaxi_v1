@@ -96,12 +96,20 @@
 
     <Button
         android:id="@+id/btDriverRegister"
+        style="@style/button_style_black"
         android:layout_width="129dp"
         android:layout_height="wrap_content"
-        style="@style/button_style_black"
         android:layout_gravity="center_horizontal"
-        android:text="Register"
-        android:textStyle="bold"
         android:layout_marginTop="50dp"
-        android:textColor="@color/colorPrimary"/>
+        android:text="Register"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold" />
+
+    <ProgressBar android:id="@+id/loading_spinner"
+        style="?android:progressBarStyleLarge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:visibility="invisible"/>
+
 </LinearLayout>

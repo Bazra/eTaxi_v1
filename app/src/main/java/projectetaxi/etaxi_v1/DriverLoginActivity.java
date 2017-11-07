@@ -6,13 +6,12 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
-import com.google.firebase.iid.FirebaseInstanceId;
-import com.google.firebase.messaging.FirebaseMessaging;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -20,6 +19,7 @@ import org.json.JSONObject;
 public class DriverLoginActivity extends AppCompatActivity {
 
 
+    ProgressBar mprogressBar;
 
 
     private static String driToken;
@@ -117,6 +117,8 @@ public class DriverLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver_login);
 
+        mprogressBar = (ProgressBar) findViewById(R.id.loading_spinner);
+
         final EditText etDriverEmail = (EditText) findViewById(R.id.etDriverEmail);
         final EditText etDriverPassword = (EditText) findViewById(R.id.etDriverPassword);
 
@@ -126,6 +128,8 @@ public class DriverLoginActivity extends AppCompatActivity {
         btDriverLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+
+                mprogressBar.setVisibility(view.VISIBLE);
 
                 final String email = etDriverEmail.getText().toString();
 
@@ -177,6 +181,9 @@ public class DriverLoginActivity extends AppCompatActivity {
         btDriverRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view){
+
+                mprogressBar.setVisibility(view.VISIBLE);
+
                 Intent loginIntent= new Intent(DriverLoginActivity.this, DriverRegisterActivity.class);
                 DriverLoginActivity.this.startActivity(loginIntent);
             }
