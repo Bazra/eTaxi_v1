@@ -1,3 +1,4 @@
+/*
 package projectetaxi.etaxi_v1;
 
 import android.app.AlertDialog;
@@ -19,9 +20,11 @@ import org.json.JSONObject;
 
 import java.util.ArrayList;
 
+*/
 /**
  * Created by Ashim Bazracharya on 10/17/2017.
- */
+ *//*
+
 
 public class BookingActivity extends AppCompatActivity{
 
@@ -269,3 +272,4 @@ public class BookingActivity extends AppCompatActivity{
     }
 
 }
+*/
