@@ -23,6 +23,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -53,6 +54,7 @@ import java.util.Locale;
 
 
 public class DestinationSelectionActivity extends FragmentActivity implements
+
         OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
@@ -60,64 +62,64 @@ public class DestinationSelectionActivity extends FragmentActivity implements
         GoogleMap.OnMapClickListener,
         GoogleMap.OnMapLongClickListener {
 
-    private static String currentLat;
-    private static String currentLng;
-    private static String destinationLat;
-    private static String destinationLng;
+    private  String currentLat;
+    private  String currentLng;
+    private  String destinationLat;
+    private  String destinationLng;
+    private String driverEmail;
 
-    private static double doubleCurrentLat;
-    private static double doubleCurrentLng;
-    private static double doubleDestinationLat;
-    private static double doubleDestinationLng;
+    private double doubleCurrentLat;
+    private double doubleCurrentLng;
+    private double doubleDestinationLat;
+    private double doubleDestinationLng;
 
 
-    public static String getCurrentLat() {
+    public String getCurrentLat() {
         return currentLat;
     }
 
-    public static String getCurrentLng() {
+    public String getCurrentLng() {
         return currentLng;
     }
 
-    public static String getDestinationLat() {
+    public String getDestinationLat() {
         return destinationLat;
     }
 
-    public static String getDestinationLng() {
+    public String getDestinationLng() {
         return destinationLng;
     }
 
-
-    public static double getDoubleCurrentLat() {
+    public double getDoubleCurrentLat() {
         return doubleCurrentLat;
     }
 
-    public static void setDoubleCurrentLat(double doubleCurrentLat) {
-        DestinationSelectionActivity.doubleCurrentLat = doubleCurrentLat;
+    public void setDoubleCurrentLat(double doubleCurrentLat) {
+        this.doubleCurrentLat = doubleCurrentLat;
     }
 
-    public static double getDoubleCurrentLng() {
+    public double getDoubleCurrentLng() {
         return doubleCurrentLng;
     }
 
-    public static void setDoubleCurrentLng(double doubleCurrentLng) {
-        DestinationSelectionActivity.doubleCurrentLng = doubleCurrentLng;
+    public void setDoubleCurrentLng(double doubleCurrentLng) {
+        this.doubleCurrentLng = doubleCurrentLng;
     }
 
-    public static double getDoubleDestinationLat() {
+    public double getDoubleDestinationLat() {
         return doubleDestinationLat;
     }
 
-    public static void setDoubleDestinationLat(double doubleDestinationLat) {
-        DestinationSelectionActivity.doubleDestinationLat = doubleDestinationLat;
+    public void setDoubleDestinationLat(double doubleDestinationLat) {
+        this.doubleDestinationLat = doubleDestinationLat;
     }
 
-    public static double getDoubleDestinationLng() {
+    public double getDoubleDestinationLng() {
         return doubleDestinationLng;
     }
 
-    public static void setDoubleDestinationLng(double doubleDestinationLng) {
-        DestinationSelectionActivity.doubleDestinationLng = doubleDestinationLng;
+    public void setDoubleDestinationLng(double doubleDestinationLng) {
+        this.doubleDestinationLng = doubleDestinationLng;
     }
 
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
@@ -254,6 +256,10 @@ public class DestinationSelectionActivity extends FragmentActivity implements
         currentLat = String.valueOf(location.getLatitude());
         currentLng = String.valueOf(location.getLongitude());
 
+
+        Bundle bundle = getIntent().getExtras();
+        driverEmail = bundle.getString("driverEmail");
+        Log.d(TAG, "Booooking Driver Email in Destination Select Activity: " + driverEmail);
 
         Log.d(TAG, "Passenger Current Latitude----> " + currentLat);
         Log.d(TAG, "Passenger Current Longitude----> " + currentLng);
@@ -481,6 +487,17 @@ public class DestinationSelectionActivity extends FragmentActivity implements
                 Log.d(TAG, "/////Src Lng: " + currentLng);
                 Log.d(TAG, "/////Dest Lat: " + destinationLat);
                 Log.d(TAG, "/////Dest Lng: " + destinationLng);
+                Log.d(TAG, "Driver Emaiiiiiil: " + driverEmail);
+
+                Bundle destBundle = new Bundle();
+                destBundle.putString("driverEmail", driverEmail);
+                destBundle.putString("srcLat", currentLat);
+                destBundle.putString("srcLng", currentLng);
+                destBundle.putString("destLat", destinationLat);
+                destBundle.putString("destLng", destinationLng);
+                intent.putExtras(destBundle);
+                startActivity(intent);
+
 
 
             }

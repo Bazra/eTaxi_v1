@@ -21,7 +21,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
 
 
     ProgressBar mprogressBar;
-    BookingData booking = new BookingData();
 
     final String TAG = this.getClass().getName();
 

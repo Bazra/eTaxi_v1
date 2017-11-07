@@ -8,8 +8,8 @@ public class URLRequest {
 
     private static int num1 = 192;
     private static int num2 = 168;
-    private static int num3 = 100;
-    private static int num4 = 4;
+    private static int num3 = 1;
+    private static int num4 = 15;
 
     private static String lat;
     private static String lng;

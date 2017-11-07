@@ -135,8 +135,6 @@ public class BookingActivity extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_booking);
 
-        final BookingData data = new BookingData();
-
         final PassengerLoginActivity passengerLoginActivity = new PassengerLoginActivity();
 
         final AmountCalculationActivity amountCalculationActivity = new AmountCalculationActivity();
@@ -175,7 +173,7 @@ public class BookingActivity extends AppCompatActivity{
             public void onClick(View view) {
 
                 final String roadType = amountCalculationActivity.getRoadType();
-                final String driverEmail = data.driverEmail;
+                final String driverEmail = "driverEmail";
                 final String passengerEmail = passengerLoginActivity.getPassenEmail();
                 final String srcLat = destinationSelectionActivity.getCurrentLat();
                 final String srcLong = destinationSelectionActivity.getCurrentLng();
@@ -235,80 +233,76 @@ public class BookingActivity extends AppCompatActivity{
             }
         });
 
-        btReviewBooking.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                Log.d(TAG, "Clicked.....");
-
-                Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
-
-                    @Override
-                    public void onResponse(JSONObject response) {
-
-                        try {
-
-                            String status = response.getString("status");
-
-                            Log.d(TAG, "response: "+response);
-                            Log.d(TAG, "status: "+status);
-
-                            JSONArray arrRoutes = response.getJSONArray("routes");
-                            JSONObject routes = arrRoutes.getJSONObject(0);
-                            JSONArray arrLegs = routes.getJSONArray("legs");
-                            JSONObject legs = arrLegs.getJSONObject(0);
-                            JSONObject objDistance = legs.getJSONObject("distance");
-                            JSONObject objDuration = legs.getJSONObject("duration");
-
-                            String strDistance = objDistance.getString("text");
-                            Integer intDist = objDistance.getInt("value");
-                            String src = legs.getString("start_address");
-                            String dest = legs.getString("end_address");
-                            String dur = objDuration.getString("text");
-
-                            distance = strDistance;
-                            intDistance = intDist;
-                            source = src;
-                            destination = dest;
-                            duration = dur;
-
-                            Log.d(TAG, "strDistance: "+strDistance);
-                            Log.d(TAG, "intDistance: "+intDistance);
-                            Log.d(TAG, "source: "+source);
-                            Log.d(TAG, "destination: "+destination);
-                            Log.d(TAG, "duration: "+duration);
-
-
-                            Intent intent = new Intent(BookingActivity.this,
-                                    AmountCalculationActivity.class);
-
-                            BookingActivity.this.startActivity(intent);
-
-
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-
-                ReviewBookingRequest request = new ReviewBookingRequest(responseListener);
-
-                Log.d(TAG, "Request: "+request);
-
-                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
-
-                Log.d(TAG, "RequestQueue: "+queue);
-
-                queue.add(request);
-
-                Log.d(TAG, "AddedRequestQueue: "+queue);
-
-            }
-        });
-
-
-
-
+//        btReviewBooking.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//                Log.d(TAG, "Clicked.....");
+//
+//                Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
+//
+//                    @Override
+//                    public void onResponse(JSONObject response) {
+//
+//                        try {
+//
+//                            String status = response.getString("status");
+//
+//                            Log.d(TAG, "response: "+response);
+//                            Log.d(TAG, "status: "+status);
+//
+//                            JSONArray arrRoutes = response.getJSONArray("routes");
+//                            JSONObject routes = arrRoutes.getJSONObject(0);
+//                            JSONArray arrLegs = routes.getJSONArray("legs");
+//                            JSONObject legs = arrLegs.getJSONObject(0);
+//                            JSONObject objDistance = legs.getJSONObject("distance");
+//                            JSONObject objDuration = legs.getJSONObject("duration");
+//
+//                            String strDistance = objDistance.getString("text");
+//                            Integer intDist = objDistance.getInt("value");
+//                            String src = legs.getString("start_address");
+//                            String dest = legs.getString("end_address");
+//                            String dur = objDuration.getString("text");
+//
+//                            distance = strDistance;
+//                            intDistance = intDist;
+//                            source = src;
+//                            destination = dest;
+//                            duration = dur;
+//
+//                            Log.d(TAG, "strDistance: "+strDistance);
+//                            Log.d(TAG, "intDistance: "+intDistance);
+//                            Log.d(TAG, "source: "+source);
+//                            Log.d(TAG, "destination: "+destination);
+//                            Log.d(TAG, "duration: "+duration);
+//
+//
+//                            Intent intent = new Intent(BookingActivity.this,
+//                                    AmountCalculationActivity.class);
+//
+//                            BookingActivity.this.startActivity(intent);
+//
+//
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
+//                    }
+//                };
+//
+//                ReviewBookingRequest request = new ReviewBookingRequest(responseListener);
+//
+//                Log.d(TAG, "Request: "+request);
+//
+//                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
+//
+//                Log.d(TAG, "RequestQueue: "+queue);
+//
+//                queue.add(request);
+//
+//                Log.d(TAG, "AddedRequestQueue: "+queue);
+//
+//            }
+//        });
 
     }
 

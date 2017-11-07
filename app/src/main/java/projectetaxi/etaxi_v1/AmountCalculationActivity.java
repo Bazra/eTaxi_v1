@@ -18,23 +18,96 @@ import org.json.JSONObject;
 
 public class AmountCalculationActivity extends AppCompatActivity {
 
-    private static double amount;
-    private static String roadType;
+    private double amount;
+    private String roadType, src, dest, srcLt, srcLn, dstLt, dstLn, driverEmail, dist, dur;
+    private int intDistance;
 
-    public static double getAmount() {
+    public double getAmount() {
         return amount;
     }
 
-    public static void setAmount(double amount) {
-        AmountCalculationActivity.amount = amount;
+    public void setAmount(double amount) {
+        this.amount = amount;
     }
 
-    public static String getRoadType() {
+    public String getRoadType() {
         return roadType;
     }
 
-    public static void setRoadType(String roadType) {
-        AmountCalculationActivity.roadType = roadType;
+    public void setRoadType(String roadType) {
+        this.roadType = roadType;
+    }
+
+    public String getSrc() {
+        return src;
+    }
+
+    public void setSrc(String src) {
+        this.src = src;
+    }
+
+    public String getDest() {
+        return dest;
+    }
+
+    public void setDest(String dest) {
+        this.dest = dest;
+    }
+
+    public String getSrcLt() {
+        return srcLt;
+    }
+
+    public void setSrcLt(String srcLt) {
+        this.srcLt = srcLt;
+    }
+
+    public String getSrcLn() {
+        return srcLn;
+    }
+
+    public void setSrcLn(String srcLn) {
+        this.srcLn = srcLn;
+    }
+
+    public String getDstLt() {
+        return dstLt;
+    }
+
+    public void setDstLt(String dstLt) {
+        this.dstLt = dstLt;
+    }
+
+    public String getDstLn() {
+        return dstLn;
+    }
+
+    public void setDstLn(String dstLn) {
+        this.dstLn = dstLn;
+    }
+
+    public String getDriverEmail() {
+        return driverEmail;
+    }
+
+    public void setDriverEmail(String driverEmail) {
+        this.driverEmail = driverEmail;
+    }
+
+    public String getDist() {
+        return dist;
+    }
+
+    public void setDist(String dist) {
+        this.dist = dist;
+    }
+
+    public String getDur() {
+        return dur;
+    }
+
+    public void setDur(String dur) {
+        this.dur = dur;
     }
 
     final String TAG = this.getClass().getName();
@@ -44,6 +117,17 @@ public class AmountCalculationActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_amount_calculation);
 
+        Bundle bundle = getIntent().getExtras();
+        srcLt = bundle.getString("srcLat");
+        srcLn = bundle.getString("srcLng");
+        dstLt = bundle.getString("destLat");
+        dstLn = bundle.getString("destLng");
+        dest = bundle.getString("dest");
+        src = bundle.getString("src");
+        dist = bundle.getString("distance");
+        dur = bundle.getString("duration");
+        intDistance = bundle.getInt("intDistance");
+
         final BookingActivity bookingActivity = new BookingActivity();
 
         final TextView tvFrom = (TextView) findViewById(R.id.tvPassFrom);
@@ -52,10 +136,10 @@ public class AmountCalculationActivity extends AppCompatActivity {
         final TextView tvDuration = (TextView) findViewById(R.id.tvPassTime);
         final TextView tvAmount = (TextView) findViewById(R.id.tvAmount);
 
-        tvFrom.setText(bookingActivity.getSource());
-        tvTo.setText(bookingActivity.getDestination());
-        tvDistance.setText(bookingActivity.getDistance());
-        tvDuration.setText(bookingActivity.getDuration());
+        tvFrom.setText(src);
+        tvTo.setText(dest);
+        tvDistance.setText(dist);
+        tvDuration.setText(dur);
 
         final Button btCalculate = (Button) findViewById(R.id.btCalcAmount);
         final Button btDone = (Button) findViewById(R.id.btDone);
@@ -85,29 +169,28 @@ public class AmountCalculationActivity extends AppCompatActivity {
                             double dbCityRate = Double.parseDouble(cityRate);
                             double dbHighwayRate = Double.parseDouble(highwayRate);
 
-                            String src = bookingActivity.getSource().toLowerCase();
-                            String dest = bookingActivity.getDestination().toLowerCase();
-                            int dist = bookingActivity.getIntDistance();
+                            String lowSrc = src.toLowerCase();
+                            String lowDest = dest.toLowerCase();
 
                             Log.d(TAG, "src: " + src);
                             Log.d(TAG, "dest: " + dest);
                             Log.d(TAG, "dist: " + dist);
 
-                            if (((src.contains("highway")) ||
-                                    (src.contains("hwy")) ||
-                                    (src.contains("rajmarg"))) &&
-                                    ((dest.contains("highway")) ||
-                                            (dest.contains("hwy")) ||
-                                            (dest.contains("rajmarg")))) {
+                            if (((lowSrc.contains("highway")) ||
+                                    (lowSrc.contains("hwy")) ||
+                                    (lowSrc.contains("rajmarg"))) &&
+                                    ((lowDest.contains("highway")) ||
+                                            (lowDest.contains("hwy")) ||
+                                            (lowDest.contains("rajmarg")))) {
 
-                                amount = dbHighwayRate * dist / 1000;
+                                amount = dbHighwayRate * intDistance / 1000;
                                 tvAmount.setText("Rs. " + amount + " /-");
                                 btCalculate.setText("Taxi Fee");
                                 roadType = "Highway";
 
                             } else {
 
-                                amount = dbCityRate * dist / 1000;
+                                amount = dbCityRate * intDistance / 1000;
                                 tvAmount.setText("Rs. " + amount + " /-");
                                 btCalculate.setText("Taxi Fee");
                                 roadType = "City Road";
@@ -132,7 +215,7 @@ public class AmountCalculationActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(AmountCalculationActivity.this, BookingActivity.class);
+                Intent intent = new Intent(AmountCalculationActivity.this, PassengerMainActivity.class);
                 AmountCalculationActivity.this.startActivity(intent);
 
             }
