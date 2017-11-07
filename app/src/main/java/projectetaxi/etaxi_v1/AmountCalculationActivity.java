@@ -1,5 +1,6 @@
 package projectetaxi.etaxi_v1;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -26,88 +28,8 @@ public class AmountCalculationActivity extends AppCompatActivity {
         return amount;
     }
 
-    public void setAmount(double amount) {
-        this.amount = amount;
-    }
-
     public String getRoadType() {
         return roadType;
-    }
-
-    public void setRoadType(String roadType) {
-        this.roadType = roadType;
-    }
-
-    public String getSrc() {
-        return src;
-    }
-
-    public void setSrc(String src) {
-        this.src = src;
-    }
-
-    public String getDest() {
-        return dest;
-    }
-
-    public void setDest(String dest) {
-        this.dest = dest;
-    }
-
-    public String getSrcLt() {
-        return srcLt;
-    }
-
-    public void setSrcLt(String srcLt) {
-        this.srcLt = srcLt;
-    }
-
-    public String getSrcLn() {
-        return srcLn;
-    }
-
-    public void setSrcLn(String srcLn) {
-        this.srcLn = srcLn;
-    }
-
-    public String getDstLt() {
-        return dstLt;
-    }
-
-    public void setDstLt(String dstLt) {
-        this.dstLt = dstLt;
-    }
-
-    public String getDstLn() {
-        return dstLn;
-    }
-
-    public void setDstLn(String dstLn) {
-        this.dstLn = dstLn;
-    }
-
-    public String getDriverEmail() {
-        return driverEmail;
-    }
-
-    public void setDriverEmail(String driverEmail) {
-        this.driverEmail = driverEmail;
-    }
-
-    public String getDist() {
-        return dist;
-    }
-
-    public void setDist(String dist) {
-        this.dist = dist;
-    }
-
-    public String getDur() {
-        return dur;
-    }
-
-    public void setDur(String dur) {
-        this.dur = dur;
     }
 
     final String TAG = this.getClass().getName();
@@ -147,7 +69,6 @@ public class AmountCalculationActivity extends AppCompatActivity {
         btCalculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
 
                 Response.Listener<JSONArray> responseListener = new Response.Listener<JSONArray>() {
 
@@ -214,6 +135,46 @@ public class AmountCalculationActivity extends AppCompatActivity {
         btDone.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+
+
+                    @Override
+                    public void onResponse(String response) {
+
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            boolean success = jsonResponse.getBoolean("success");
+
+                            if(success) {
+
+                                Toast.makeText(
+                                        getApplicationContext(),
+                                        "Booking Done",
+                                        Toast.LENGTH_SHORT).show();
+
+                                Intent intent = new Intent(AmountCalculationActivity.this,
+                                        PassengerMainActivity.class);
+                                AmountCalculationActivity.this.startActivity(intent);
+                            } else {
+
+                                AlertDialog.Builder builder = new AlertDialog.Builder(
+                                        AmountCalculationActivity.this);
+                                builder.setMessage("Booking Failed")
+                                        .setNegativeButton("Try Again", null)
+                                        .create()
+                                        .show();
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                };
+
+                BookingRequest request = new BookingRequest(roadType, driverEmail,
+                        srcLt, srcLn, dstLt, dstLn, ""+amount, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(AmountCalculationActivity.this);
+                queue.add(request);
 
                 Intent intent = new Intent(AmountCalculationActivity.this, PassengerMainActivity.class);
                 AmountCalculationActivity.this.startActivity(intent);

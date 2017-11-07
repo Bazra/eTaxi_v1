@@ -6,13 +6,6 @@
     android:layout_height="match_parent"
     tools:context="projectetaxi.etaxi_v1.DestinationSelectionActivity">
 
-    <TextView
-        android:id="@+id/tv_distance_time"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world"
-        android:layout_alignParentTop="true" />
-
 
     <fragment xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
@@ -26,9 +19,25 @@
         android:layout_alignParentTop="true"
         tools:context="projectetaxi.etaxi_v1.DestinationSelectionActivity" />
 
+    <TextView
+        android:id="@+id/tvDriverLogin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="40dp"
+        android:padding="20dp"
+        android:text="CHOOSE A DESTINATION"
+        android:background="@drawable/yellow_button"
+        android:textColor="@color/colorBlackFade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+
     <Button
         android:id="@+id/btSelectDest"
-        style="@style/button_style_yellow"
+        style="@style/button_style_black"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -38,7 +47,7 @@
         android:paddingLeft="10dp"
         android:paddingRight="10dp"
         android:text="Confirm"
-        android:textColor="@color/colorBlackFade"
+        android:textColor="@color/colorPrimary"
         android:textSize="20sp"
         android:textStyle="bold" />
 

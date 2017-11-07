@@ -63,7 +63,6 @@ public class PassengerMainActivity extends AppCompatActivity implements
         return passengerCurrentLat;
     }
 
-
     public static String getPassengerCurrentLng() {
         return passengerCurrentLng;
     }

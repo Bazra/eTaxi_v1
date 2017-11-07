@@ -207,43 +207,23 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
                                     @Override
                                     public void onClick(View view) {
 
-                                        final Response.Listener<String> responseListener =
-                                                new Response.Listener<String>() {
-
-
-                                            @Override
-                                            public void onResponse(String response) {
-
-                                                Intent intent = new Intent(
-                                                        NearByDriverActivity.this,
-                                                        DestinationSelectionActivity.class);
-                                                NearByDriverActivity.this.startActivity(intent);
-                                                Bundle bundle = new Bundle();
-                                                bundle.putString("driverEmail", driverEmail);
-                                                intent.putExtras(bundle);
-                                                startActivity(intent);
-                                            }
-                                        };
-
-                                        SelectedDriverPostRequest request = new SelectedDriverPostRequest(driverEmail,
-                                                responseListener);
-                                        Log.d(TAG, "DDDDDDDDDDriver Email: " + driverEmail);
-                                        RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
-                                        queue.add(request);
-
+                                    Intent intent = new Intent(
+                                            NearByDriverActivity.this,
+                                            DestinationSelectionActivity.class);
+                                    NearByDriverActivity.this.startActivity(intent);
+                                    Bundle bundle = new Bundle();
+                                    bundle.putString("driverEmail", driverEmail);
+                                    intent.putExtras(bundle);
+                                    startActivity(intent);
                                     }
                                 });
-
                                 break;
                             }
-
                         }
                         Log.d(TAG, "VVVVVVVVVVVVVVVVVVVVVV: " + v);
                         return v;
                     }
                 });
-
-
             }
         };
 
@@ -252,13 +232,7 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         RequestQueue queue = Volley.newRequestQueue(NearByDriverActivity.this);
         queue.add(request);
         Log.d(TAG, "ArrralistSizzzzzzzzzzzzze: " + nearbyDriverArrayList.size());
-
-
-
-
     }
-
-
 
 
 
@@ -409,4 +383,3 @@ public class NearByDriverActivity extends AppCompatActivity implements OnMapRead
         return true;
     }
 }
-

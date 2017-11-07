@@ -192,44 +192,6 @@ public class BookingActivity extends AppCompatActivity{
                         + destLong
                         + amount
                 );
-
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-
-
-                    @Override
-                    public void onResponse(String response) {
-
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if(success) {
-
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "Booking Done",
-                                        Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(BookingActivity.this, PassengerMainActivity.class);
-                                BookingActivity.this.startActivity(intent);
-                            } else {
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(BookingActivity.this);
-                                builder.setMessage("Booking Failed")
-                                        .setNegativeButton("Try Again", null)
-                                        .create()
-                                        .show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                };
-
-                BookingRequest request = new BookingRequest(roadType, driverEmail, passengerEmail,
-                        srcLat, srcLong, destLat, destLong, amount, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(BookingActivity.this);
-                queue.add(request);
             }
         });
 

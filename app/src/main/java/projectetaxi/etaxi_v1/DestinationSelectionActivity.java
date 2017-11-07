@@ -90,38 +90,6 @@ public class DestinationSelectionActivity extends FragmentActivity implements
         return destinationLng;
     }
 
-    public double getDoubleCurrentLat() {
-        return doubleCurrentLat;
-    }
-
-    public void setDoubleCurrentLat(double doubleCurrentLat) {
-        this.doubleCurrentLat = doubleCurrentLat;
-    }
-
-    public double getDoubleCurrentLng() {
-        return doubleCurrentLng;
-    }
-
-    public void setDoubleCurrentLng(double doubleCurrentLng) {
-        this.doubleCurrentLng = doubleCurrentLng;
-    }
-
-    public double getDoubleDestinationLat() {
-        return doubleDestinationLat;
-    }
-
-    public void setDoubleDestinationLat(double doubleDestinationLat) {
-        this.doubleDestinationLat = doubleDestinationLat;
-    }
-
-    public double getDoubleDestinationLng() {
-        return doubleDestinationLng;
-    }
-
-    public void setDoubleDestinationLng(double doubleDestinationLng) {
-        this.doubleDestinationLng = doubleDestinationLng;
-    }
-
     public static final int MY_PERMISSIONS_REQUEST_LOCATION = 99;
 
     GoogleApiClient mGoogleApiClient;
@@ -147,7 +115,7 @@ public class DestinationSelectionActivity extends FragmentActivity implements
             checkLocationPermission();
         }
 
-        tvDistanceDuration = (TextView) findViewById(R.id.tv_distance_time);
+        //tvDistanceDuration = (TextView) findViewById(R.id.tv_distance_time);
 
         // Initializing
         MarkerPoints = new ArrayList<LatLng>();
@@ -498,14 +466,8 @@ public class DestinationSelectionActivity extends FragmentActivity implements
                 intent.putExtras(destBundle);
                 startActivity(intent);
 
-
-
             }
         });
-
-
-
-
     }
 
     private String getUrl(LatLng currentlatLng, LatLng destlatLng) {

@@ -24,62 +24,9 @@ public class ReviewBookingActivity extends AppCompatActivity {
     private int intDistance;
     private String driverEmail;
 
-
-    public String getSource() {
-        return source;
-    }
-
-    public void setSource(String source) {
-        this.source = source;
-    }
-
-    public String getDestination() {
-        return destination;
-    }
-
-    public void setDestination(String destination) {
-        this.destination = destination;
-    }
-
-    public String getDistance() {
-        return distance;
-    }
-
-    public void setDistance(String distance) {
-        this.distance = distance;
-    }
-
-    public String getDuration() {
-        return duration;
-    }
-
-    public void setDuration(String duration) {
-        this.duration = duration;
-    }
-
-    public int getIntDistance() {
-        return intDistance;
-    }
-
-    public void setIntDistance(int intDistance) {
-        this.intDistance = intDistance;
-    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_amount_calculation);
-
-//        final Button btReviewBooking = findViewById(R.id.btReviewBooking);
-
-//        btReviewBooking.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//                Log.d(TAG, "Clicked.....");
-//
-//            }
-//        });
 
         Response.Listener<JSONObject> responseListener = new Response.Listener<JSONObject>() {
 
@@ -100,19 +47,13 @@ public class ReviewBookingActivity extends AppCompatActivity {
                     JSONObject objDistance = legs.getJSONObject("distance");
                     JSONObject objDuration = legs.getJSONObject("duration");
 
-                    String strDistance = objDistance.getString("text");
-                    Integer intDist = objDistance.getInt("value");
-                    String src = legs.getString("start_address");
-                    String dest = legs.getString("end_address");
-                    String dur = objDuration.getString("text");
+                    distance = objDistance.getString("text");
+                    intDistance = objDistance.getInt("value");
+                    source = legs.getString("start_address");
+                    destination = legs.getString("end_address");
+                    duration = objDuration.getString("text");
 
-                    distance = strDistance;
-                    intDistance = intDist;
-                    source = src;
-                    destination = dest;
-                    duration = dur;
-
-                    Log.d(TAG, "strDistance: "+strDistance);
+                    Log.d(TAG, "strDistance: "+distance);
                     Log.d(TAG, "intDistance: "+intDistance);
                     Log.d(TAG, "source: "+source);
                     Log.d(TAG, "destination: "+destination);
@@ -167,7 +108,6 @@ public class ReviewBookingActivity extends AppCompatActivity {
         queue.add(request);
 
         Log.d(TAG, "AddedRequestQueue: "+queue);
-
 
     }
 
