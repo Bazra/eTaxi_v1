@@ -188,5 +188,10 @@ public class DriverLoginActivity extends AppCompatActivity {
                 DriverLoginActivity.this.startActivity(loginIntent);
             }
         });
+
+    }
+    @Override
+    public void onBackPressed(){
+        mprogressBar.setVisibility(View.INVISIBLE);
     }
 }

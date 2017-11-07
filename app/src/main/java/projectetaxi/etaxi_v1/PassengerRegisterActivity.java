@@ -86,4 +86,8 @@ public class PassengerRegisterActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
+    public void onBackPressed(){
+        mprogressBar.setVisibility(View.INVISIBLE);
+    }
 }
