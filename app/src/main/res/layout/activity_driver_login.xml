@@ -72,11 +72,16 @@
         android:textStyle="bold"
         android:textColor="@color/colorPrimary" />
 
-    <ProgressBar android:id="@+id/loading_spinner"
+    <ProgressBar
+        android:id="@+id/loading_spinner"
         style="?android:progressBarStyleLarge"
+        android:progressDrawable="@color/colorAccentBlack"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:visibility="invisible"/>
+        android:indeterminateDrawable="@drawable/custom_progress_dialog"
+        android:visibility="invisible"
+
+        />
 
 </LinearLayout>
