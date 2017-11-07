@@ -77,7 +77,6 @@
             android:label="@string/title_activity_passenger"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".BookingHistoryActivity" />
-        <activity android:name=".BookingActivity" />
         <activity android:name=".PassengerSettingActivity" />
         <activity android:name=".DriverSettingActivity" />
         <activity android:name=".DestinationSelectionActivity" />
