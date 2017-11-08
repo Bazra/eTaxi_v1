@@ -267,16 +267,16 @@ public class AfterDriverSelection extends AppCompatActivity implements
 
         mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
             @Override
-            public View getInfoWindow(Marker pMarker) {
+            public View getInfoWindow(Marker Marker) {
                 return null;
             }
 
             @Override
-            public View getInfoContents(Marker pMarker) {
+            public View getInfoContents(Marker Marker) {
 
                 View v=null;
 
-                if(latLng.equals(dLatLng)){
+                if(pMarker.equals(Marker)){
                     v = getLayoutInflater().inflate(R.layout.info_winpassenger, null);
                     TextView tvname = (TextView) v.findViewById(R.id.tv_name);
                     TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
