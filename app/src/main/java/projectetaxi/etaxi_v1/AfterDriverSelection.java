@@ -14,6 +14,8 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -262,6 +264,25 @@ public class AfterDriverSelection extends AppCompatActivity implements
                 .position(dLatLng)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_marker)));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dLatLng,15));
+
+        mMap.setInfoWindowAdapter(new GoogleMap.InfoWindowAdapter() {
+            @Override
+            public View getInfoWindow(Marker pMarker) {
+                return null;
+            }
+
+            @Override
+            public View getInfoContents(Marker pMarker) {
+                View v;
+                v = getLayoutInflater().inflate(R.layout.info_winpassenger, null);
+                TextView tvname = (TextView) v.findViewById(R.id.tv_name);
+                TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
+
+                tvname.setText("Name: " + name);
+                tvmobilenum.setText("Mobile Number: " + mobileNumber);
+                return v;
+            }
+        });
 
 //        String url = getUrl(latLng, dLatLng);
 //        FetchUrl FetchUrl = new FetchUrl();
