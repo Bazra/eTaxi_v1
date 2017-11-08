@@ -225,7 +225,7 @@ public class AfterDriverSelection extends AppCompatActivity implements
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
 //move map camera
-//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//        mM-ap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
 //        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
 //this code stops location updates
         if (mGoogleApiClient != null) {
@@ -273,13 +273,18 @@ public class AfterDriverSelection extends AppCompatActivity implements
 
             @Override
             public View getInfoContents(Marker pMarker) {
-                View v;
-                v = getLayoutInflater().inflate(R.layout.info_winpassenger, null);
-                TextView tvname = (TextView) v.findViewById(R.id.tv_name);
-                TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
 
-                tvname.setText("Name: " + name);
-                tvmobilenum.setText("Mobile Number: " + mobileNumber);
+                View v=null;
+
+                if(latLng.equals(dLatLng)){
+                    v = getLayoutInflater().inflate(R.layout.info_winpassenger, null);
+                    TextView tvname = (TextView) v.findViewById(R.id.tv_name);
+                    TextView tvmobilenum = (TextView) v.findViewById(R.id.tv_mobilenum);
+
+                    tvname.setText("Name: " + name);
+                    tvmobilenum.setText("Mobile Number: " + mobileNumber);
+                }
+
                 return v;
             }
         });
