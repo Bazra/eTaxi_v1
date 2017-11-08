@@ -92,5 +92,8 @@ public class DriverRegisterActivity extends AppCompatActivity {
         super.onBackPressed();
         mprogressBar.setVisibility(View.INVISIBLE);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        startActivity(new Intent(DriverRegisterActivity.this,
+                UserSelectActivity.class));
+        finish();
     }
 }

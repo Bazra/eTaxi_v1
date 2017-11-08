@@ -142,6 +142,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
+
                         try {
                             JSONObject jsonResponse = new JSONObject(response);
                             boolean success = jsonResponse.getBoolean("success");
@@ -157,6 +158,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                                 driPassword = password;
                                 Intent intent = new Intent(DriverLoginActivity.this, DriverMainActivity.class);
                                 DriverLoginActivity.this.startActivity(intent);
+
 
                                 Toast.makeText(getApplicationContext(), "Logged In.",
                                         Toast.LENGTH_SHORT).show();
@@ -187,6 +189,7 @@ public class DriverLoginActivity extends AppCompatActivity {
 
                 Intent loginIntent= new Intent(DriverLoginActivity.this, DriverRegisterActivity.class);
                 DriverLoginActivity.this.startActivity(loginIntent);
+
             }
         });
 

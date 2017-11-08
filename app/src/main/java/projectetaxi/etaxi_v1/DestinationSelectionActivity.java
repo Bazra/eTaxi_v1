@@ -229,6 +229,7 @@ public class DestinationSelectionActivity extends FragmentActivity implements
         driverEmail = bundle.getString("driverEmail");
         Log.d(TAG, "Booooking Driver Email in Destination Select Activity: " + driverEmail);
 
+
         Log.d(TAG, "Passenger Current Latitude----> " + currentLat);
         Log.d(TAG, "Passenger Current Longitude----> " + currentLng);
 

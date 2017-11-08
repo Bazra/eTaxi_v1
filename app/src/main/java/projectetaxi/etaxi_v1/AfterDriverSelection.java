@@ -60,7 +60,7 @@ public class AfterDriverSelection extends AppCompatActivity implements
     Marker mCurrLocationMarker, pMarker;
     LocationRequest mLocationRequest;
     private GoogleMap mMap;
-    LatLng latLng;
+    LatLng latLng,dLatLng;
 
     final String TAG = this.getClass().getName();
 
@@ -103,21 +103,16 @@ public class AfterDriverSelection extends AppCompatActivity implements
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_after_driver_selection);
 
+        Bundle bundle = getIntent().getExtras();
+        name = bundle.getString("name");
+        mobileNumber = bundle.getString("mobileNumber");
+        latitude = bundle.getString("latitude");
+        longitude = bundle.getString("longitude");
+
+        Log.d(TAG, "Bundle Data................::::: " + latitude + name + longitude);
+
         // Initializing
         MarkerPoints = new ArrayList<LatLng>();
-
-
-        if (getIntent().getExtras() != null) {
-
-            name = getIntent().getExtras().getString("name");
-            mobileNumber = getIntent().getExtras().getString("mobileNumber");
-            latitude = getIntent().getExtras().getString("latitude");
-            longitude = getIntent().getExtras().getString("longitude");
-
-            //Log.d(TAG, ".............................. " + name + mobileNumber + latitude + longitude);
-        }
-
-        Log.d(TAG, "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ " + name + mobileNumber + latitude + longitude);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -268,10 +263,12 @@ public class AfterDriverSelection extends AppCompatActivity implements
             mMap.setMyLocationEnabled(true);
         }
 
+        Log.d(TAG, "LLLLLLLLLLLLLLLL::: " + latitude);
         double dlat = Double.parseDouble(latitude);
         double dlng = Double.parseDouble(longitude);
+        Log.d(TAG, "DDDDDDDDDDDDDDDL::: " + dlat);
 
-        LatLng dLatLng = new LatLng(dlat, dlng);
+        dLatLng = new LatLng(dlat, dlng);
 
         pMarker = mMap.addMarker(new MarkerOptions()
                 .position(dLatLng)
@@ -286,10 +283,16 @@ public class AfterDriverSelection extends AppCompatActivity implements
 
     private String getUrl(LatLng latLng, LatLng dLatLng) {
         // Origin of route
+
+        Log.d(TAG, "From GetURL:::::::::::: " + latitude + "/" + longitude);
         String str_origin = "origin=" + latLng.latitude + "," + latLng.longitude;
 
+
+        Log.d(TAG, "From Destination:::::::::::: " + String.valueOf(dLatLng.latitude)
+                + "/" + String.valueOf(dLatLng.longitude));
         // Destination of route
-        String str_dest = "destination=" + dLatLng.latitude + "," + dLatLng.longitude;
+        String str_dest = "destination=" + dLatLng.latitude + ","
+                + dLatLng.longitude;
 
 
         // Sensor enabled

@@ -186,4 +186,12 @@ public class AmountCalculationActivity extends AppCompatActivity {
             }
         });
     }
+
+    @Override
+    public void onBackPressed() {
+
+        super.onBackPressed();
+        startActivity(new Intent(AmountCalculationActivity.this, PassengerMainActivity.class));
+        finish();
+    }
 }

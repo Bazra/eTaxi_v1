@@ -36,6 +36,7 @@
         <activity android:name=".UserSelectActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -58,16 +59,16 @@
         <activity android:name=".ReviewBookingActivity" />
         <activity android:name=".AmountCalculationActivity" />
         <activity android:name=".NearByDriverActivity" />
-
-
         <activity
-            android:name=".AfterDriverSelection"
+            android:name=".NotificationHandlingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="notification" />
+
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+        <activity android:name=".AfterDriverSelection"></activity>
     </application>
 
 </manifest>

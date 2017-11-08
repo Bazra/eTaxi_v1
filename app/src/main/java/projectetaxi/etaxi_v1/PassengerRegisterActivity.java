@@ -93,6 +93,9 @@ public class PassengerRegisterActivity extends AppCompatActivity {
         super.onBackPressed();
         mprogressBar.setVisibility(View.INVISIBLE);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        startActivity(new Intent(PassengerRegisterActivity.this,
+                UserSelectActivity.class));
+        finish();
 
     }
 }

@@ -42,7 +42,7 @@ public class FirebaseMessagingService extends
 
 
             Intent intent = new Intent(FirebaseMessagingService.this,
-                    AfterDriverSelection.class);
+                    NotificationHandlingActivity.class);
             FirebaseMessagingService.this.startActivity(intent);
 
             Bundle fcmBundle = new Bundle();

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:background="@color/colorBackground"
+    tools:context="projectetaxi.etaxi_v1.NotificationHandlingActivity">
+
+    <TextView
+        android:id="@+id/tvDriverLogin"
+        android:layout_width="350dp"
+        android:layout_height="200dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="126dp"
+        android:background="@drawable/black_button"
+        android:padding="45dp"
+        android:text="YOU HAVE A NEW BOOKING REQUEST !!!"
+        android:textAlignment="center"
+        android:textColor="@color/colorPrimary"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btViewOnMap"
+        style="@style/button_style_yellow"
+        android:layout_width="300dp"
+        android:layout_height="60dp"
+        android:layout_below="@+id/tvDriverLogin"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="20dp"
+        android:text="View on map"
+        android:textColor="@color/colorBlackFade"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+</RelativeLayout>
