@@ -223,8 +223,8 @@ public class AfterDriverSelection extends AppCompatActivity implements
         mCurrLocationMarker = mMap.addMarker(markerOptions);
 
 //move map camera
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+//        mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
+//        mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
 //this code stops location updates
         if (mGoogleApiClient != null) {
             LocationServices.FusedLocationApi.removeLocationUpdates(mGoogleApiClient,
@@ -261,6 +261,8 @@ public class AfterDriverSelection extends AppCompatActivity implements
         pMarker = mMap.addMarker(new MarkerOptions()
                 .position(dLatLng)
                 .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_person_marker)));
+        mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(dLatLng,15));
+
 //        String url = getUrl(latLng, dLatLng);
 //        FetchUrl FetchUrl = new FetchUrl();
 //        // Start downloading json data from Google Directions API
