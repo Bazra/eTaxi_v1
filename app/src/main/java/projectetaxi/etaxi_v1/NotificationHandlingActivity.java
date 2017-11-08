@@ -78,7 +78,7 @@ public class NotificationHandlingActivity extends AppCompatActivity {
 
                 Bundle bundle = new Bundle();
                 bundle.putString("name", name);
-                bundle.putString("mobileNum", mobileNumber);
+                bundle.putString("mobileNumber", mobileNumber);
                 bundle.putString("latitude", latitude);
                 bundle.putString("longitude", longitude);
                 intent.putExtras(bundle);

@@ -62,14 +62,6 @@ public class PassengerLoginActivity extends AppCompatActivity {
         return passenMobileNum;
     }
 
-//    public static String getCurrentLat() {
-//        return currentLat;
-//    }
-//
-//    public static String getCurrentLong() {
-//        return currentLong;
-//    }
-
     public static String getPassenEmail() {
         return passenEmail;
     }
@@ -163,5 +155,8 @@ public class PassengerLoginActivity extends AppCompatActivity {
         super.onBackPressed();
         mprogressBar.setVisibility(View.INVISIBLE);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        startActivity(new Intent(PassengerLoginActivity.this,
+                UserSelectActivity.class));
+        finish();
     }
 }

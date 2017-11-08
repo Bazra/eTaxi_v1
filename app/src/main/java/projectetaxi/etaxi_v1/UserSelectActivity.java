@@ -20,6 +20,17 @@ public class UserSelectActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_select);
 
+        if(getIntent().getExtras() != null) {
+
+            for(String key : getIntent().getExtras().keySet()) {
+
+                if (key.equals("body")) {
+
+                    Log.d(TAG, "body::::::::::::::::::::::: " + key);
+                }
+            }
+        }
+
         final ImageView ivDriver = (ImageView) findViewById(R.id.ivDriverTitle);
         final ImageView ivPassenger = (ImageView) findViewById(R.id.ivPassengerTitle);
 

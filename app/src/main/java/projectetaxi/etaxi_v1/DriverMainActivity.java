@@ -161,6 +161,10 @@ public class DriverMainActivity extends AppCompatActivity implements
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
+                Log.d(TAG, "Requested OnChecked Update Mobile :::::::::::::: " +
+                        driverLoginActivity.getDriMobileNum());
+
+
                 if(isChecked) {
 
 
@@ -262,6 +266,8 @@ public class DriverMainActivity extends AppCompatActivity implements
                             "Busy",
                             responseListener
                     );
+                    Log.d(TAG, "Requested Update Mobile :::::::::::::: " +
+                            driverLoginActivity.getDriMobileNum());
 
                     RequestQueue queue = Volley.newRequestQueue(DriverMainActivity.this);
                     queue.add(request);

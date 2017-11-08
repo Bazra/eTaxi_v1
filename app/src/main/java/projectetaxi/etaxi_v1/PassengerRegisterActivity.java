@@ -62,7 +62,8 @@ public class PassengerRegisterActivity extends AppCompatActivity {
 
                             if(success) {
 
-                                Intent intent = new Intent(PassengerRegisterActivity.this, PassengerLoginActivity.class);
+                                Intent intent = new Intent(PassengerRegisterActivity.this,
+                                        PassengerLoginActivity.class);
                                 PassengerRegisterActivity.this.startActivity(intent);
                             } else {
 

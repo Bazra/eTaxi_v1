@@ -1,5 +1,7 @@
 package projectetaxi.etaxi_v1;
 
+import android.util.Log;
+
 import com.android.volley.AuthFailureError;
 import com.android.volley.Response;
 import com.android.volley.toolbox.StringRequest;
@@ -17,6 +19,8 @@ public class BookingRequest extends StringRequest {
 
     PassengerLoginActivity passenger = new PassengerLoginActivity();
 
+    final String TAG = this.getClass().getName();
+
     private static final String BOOKING_REQUEST_URL = URLRequest.bookingRequest;
     private Map<String, String> params;
 
@@ -24,6 +28,15 @@ public class BookingRequest extends StringRequest {
                           String srcLong, String destLat, String destLong,
                           String amount, Response.Listener<String>listener) {
         super(Method.POST, BOOKING_REQUEST_URL, listener, null);
+
+        Log.d(TAG, "on the request....................." + roadType);
+        Log.d(TAG, "on the request....................." + driverEmail);
+        Log.d(TAG, "on the request....................." + passenger.getPassenEmail());
+        Log.d(TAG, "on the request....................." + srcLat);
+        Log.d(TAG, "on the request....................." + srcLong);
+        Log.d(TAG, "on the request....................." + destLat);
+        Log.d(TAG, "on the request....................." + destLong);
+        Log.d(TAG, "on the request....................." + amount);
 
         params = new HashMap<>();
         params.put("roadType", roadType);

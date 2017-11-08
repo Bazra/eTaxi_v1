@@ -149,6 +149,7 @@ public class DriverLoginActivity extends AppCompatActivity {
                             driToken = jsonResponse.getString("api_token");
                             driName = jsonResponse.getString("name");
                             driEmail = jsonResponse.getString("email");
+                            driMobileNum = jsonResponse.getString("mobileNumber");
                             driTaxiNum = jsonResponse.getString("taxiNumber");
                             driLicNum = jsonResponse.getString("licenseNumber");
                             driAddress = jsonResponse.getString("address");
@@ -199,5 +200,8 @@ public class DriverLoginActivity extends AppCompatActivity {
         super.onBackPressed();
         mprogressBar.setVisibility(View.INVISIBLE);
         getWindow().clearFlags(WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
+        startActivity(new Intent(DriverLoginActivity.this,
+                UserSelectActivity.class));
+        finish();
     }
 }

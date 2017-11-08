@@ -30,8 +30,7 @@
 
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyApToEtOar_WL3ywug0bTiDlFxIpuoR9jA" />
-        <!-- android:value="AIzaSyAqJWEOY5JOgjgF3S9lAwesHm8oirnWNCs" -->
+            android:value="AIzaSyABRw2a6VJgNf_H8ZdQlcAM0w5-Ugo19Qg" />
 
         <activity android:name=".UserSelectActivity">
             <intent-filter>
@@ -59,15 +58,16 @@
         <activity android:name=".ReviewBookingActivity" />
         <activity android:name=".AmountCalculationActivity" />
         <activity android:name=".NearByDriverActivity" />
+
         <activity
             android:name=".NotificationHandlingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="notification" />
-
                 <category android:name="android.intent.category.DEFAULT" />
             </intent-filter>
         </activity>
+
         <activity android:name=".AfterDriverSelection"></activity>
     </application>
 
