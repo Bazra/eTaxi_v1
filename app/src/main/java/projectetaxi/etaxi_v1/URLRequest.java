@@ -9,7 +9,7 @@ public class URLRequest {
     private static int num1 = 192;
     private static int num2 = 168;
     private static int num3 = 100;
-    private static int num4 = 4;
+    private static int num4 = 16;
 
     public static String driverLoginRequest = "http://"+num1+"."+num2+"."+num3+"."+num4
             +":8000/api/v1/driver/login";

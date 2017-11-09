@@ -141,37 +141,40 @@ public class AmountCalculationActivity extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
 
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            boolean success = jsonResponse.getBoolean("success");
-
-                            if(success) {
-
-                                Toast.makeText(
-                                        getApplicationContext(),
-                                        "Booking Done",
-                                        Toast.LENGTH_SHORT).show();
-
-                                Intent intent = new Intent(AmountCalculationActivity.this,
-                                        PassengerMainActivity.class);
-                                AmountCalculationActivity.this.startActivity(intent);
-                            } else {
-
-                                AlertDialog.Builder builder = new AlertDialog.Builder(
-                                        AmountCalculationActivity.this);
-                                builder.setMessage("Booking Failed")
-                                        .setNegativeButton("Try Again", null)
-                                        .create()
-                                        .show();
-                            }
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
+//                        try {
+//                            JSONObject jsonResponse = new JSONObject(response);
+//                            boolean success = jsonResponse.getBoolean("success");
+//
+//                            if(success) {
+//
+//                                Toast.makeText(
+//                                        getApplicationContext(),
+//                                        "Booking Done",
+//                                        Toast.LENGTH_SHORT).show();
+//
+//                                Intent intent = new Intent(AmountCalculationActivity.this,
+//                                        PassengerMainActivity.class);
+//                                AmountCalculationActivity.this.startActivity(intent);
+//                            } else {
+//
+//                                AlertDialog.Builder builder = new AlertDialog.Builder(
+//                                        AmountCalculationActivity.this);
+//                                builder.setMessage("Booking Failed")
+//                                        .setNegativeButton("Try Again", null)
+//                                        .create()
+//                                        .show();
+//                            }
+//                        } catch (JSONException e) {
+//                            e.printStackTrace();
+//                        }
                     }
                 };
 
                 BookingRequest request = new BookingRequest(roadType, driverEmail,
                         srcLt, srcLn, dstLt, dstLn, String.valueOf(amount), responseListener);
+                Intent intent = new Intent(AmountCalculationActivity.this,
+                        PassengerMainActivity.class);
+                AmountCalculationActivity.this.startActivity(intent);
 
                 Log.d(TAG, "roadType: " + roadType);
                 Log.d(TAG, "driverEmail: " + driverEmail);
